@@ -104,8 +104,6 @@
       letter-spacing:.2px;
       width:max-content;
       max-width:100%;
-      position:relative;
-      z-index:1;
     }
 
     .eyebrow::before{
@@ -159,8 +157,6 @@
       gap:10px;
       transition:transform .14s ease, opacity .14s ease, border-color .14s ease, background .14s ease;
       min-height:50px;
-      position:relative;
-      z-index:1;
     }
 
     .btn:hover{transform:translateY(-1px)}
@@ -186,16 +182,9 @@
       color:#fff;
       border:1px solid color-mix(in srgb, var(--accent), #fff 30%);
       box-shadow:0 16px 34px color-mix(in srgb, var(--accent), transparent 66%);
-      font-size:14px;
-      min-height:50px;
+      font-size:15px;
+      min-height:52px;
       width:100%;
-    }
-    .btn.disabled{
-      opacity:.5;
-      cursor:not-allowed;
-      pointer-events:none;
-      transform:none !important;
-      box-shadow:none;
     }
 
     .topbar{
@@ -306,86 +295,36 @@
     }
 
     .hero-copy-card{
-      position:relative;
-      overflow:hidden;
       padding:30px;
       display:flex;
       flex-direction:column;
       gap:24px;
+      position:relative;
+      overflow:hidden;
       isolation:isolate;
-      background:transparent;
+      background:var(--surface);
     }
 
     .hero-copy-card::before{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(135deg, rgba(6,16,33,.88), rgba(7,20,44,.78)),
-        url("https://iili.io/qBSLNJp.md.jpg") center center / cover no-repeat;
+      background-image:url("https://iili.io/qBtmKQ9.jpg");
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+      opacity:.12;
       z-index:0;
       pointer-events:none;
     }
 
-    .hero-copy-card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 18% 24%, rgba(34,197,94,.14), transparent 28%),
-        radial-gradient(circle at 82% 76%, rgba(37,99,235,.16), transparent 30%);
-      z-index:0;
-      pointer-events:none;
+    html[data-theme="dark"] .hero-copy-card::before{
+      opacity:.08;
     }
 
     .hero-copy-card > *{
       position:relative;
       z-index:1;
-    }
-
-    .hero-copy-card .hero-copy h1,
-    .hero-copy-card .hero-copy p,
-    .hero-copy-card .hero-note,
-    .hero-copy-card .price-pill,
-    .hero-copy-card .eyebrow{
-      color:#f3f7fd;
-    }
-
-    .hero-copy-card .hero-copy p{
-      color:rgba(243,247,253,.94);
-    }
-
-    .hero-copy-card .hero-note{
-      background:rgba(9,40,34,.56);
-      border:1px solid rgba(53,221,128,.34);
-      backdrop-filter:blur(6px);
-    }
-
-    .hero-copy-card .eyebrow{
-      background:rgba(9,40,34,.58);
-      border:1px solid rgba(53,221,128,.34);
-    }
-
-    .hero-copy-card .price-pill{
-      background:rgba(11,21,42,.54);
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter:blur(8px);
-    }
-
-    .hero-copy-card .price-pill span{
-      color:rgba(243,247,253,.82);
-    }
-
-    .hero-copy-card .btn.secondary{
-      background:rgba(7,18,38,.48);
-      color:#f3f7fd;
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow:none;
-      backdrop-filter:blur(8px);
-    }
-
-    .hero-copy-card .btn.secondary:hover{
-      background:rgba(10,24,48,.62);
     }
 
     @media (max-width:720px){
@@ -398,7 +337,7 @@
       height:78px;
       border-radius:22px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.16);
+      border:1px solid var(--line);
       background:#fff;
       box-shadow:var(--shadow-soft);
       flex:0 0 auto;
@@ -416,6 +355,7 @@
 
     .hero-copy p{
       margin:0;
+      color:var(--muted);
       font-size:17px;
       line-height:1.76;
       max-width:62ch;
@@ -428,6 +368,8 @@
       gap:10px;
       padding:15px 17px;
       border-radius:18px;
+      background:color-mix(in srgb, var(--brand), transparent 91%);
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
       font-size:14px;
       font-weight:900;
       line-height:1.55;
@@ -459,11 +401,13 @@
       min-height:54px;
       padding:13px 17px;
       border-radius:18px;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
       box-shadow:var(--shadow-soft);
     }
 
     .price-pill strong{font-size:29px;line-height:1;letter-spacing:-.8px}
-    .price-pill span{font-size:14px;font-weight:900}
+    .price-pill span{font-size:14px;color:var(--muted);font-weight:900}
 
     .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
     @media (max-width:520px){
@@ -471,8 +415,7 @@
       .hero-actions .btn{width:100%}
     }
 
-    .hero-banner-card,
-    .zones-banner-card{
+    .hero-banner-card{
       overflow:hidden;
       position:relative;
       background:#fff;
@@ -481,16 +424,14 @@
       box-shadow:var(--shadow);
     }
 
-    .hero-banner,
-    .zones-banner{
+    .hero-banner{
       width:100%;
       height:auto;
       display:block;
       background:#fff;
     }
 
-    html[data-theme="dark"] .hero-banner,
-    html[data-theme="dark"] .zones-banner{background:#0b1017}
+    html[data-theme="dark"] .hero-banner{background:#0b1017}
 
     .highlight-row{
       display:grid;
@@ -868,12 +809,12 @@
 
     .float-wa{
       bottom:var(--wa-bottom);
-      width:62px;
-      height:62px;
+      width:58px;
+      height:58px;
       border-radius:999px;
       background:transparent;
-      box-shadow:0 14px 30px rgba(0,0,0,.18);
-      overflow:hidden;
+      box-shadow:none;
+      overflow:visible;
     }
 
     .float-wa:hover,
@@ -884,11 +825,7 @@
       height:100%;
       object-fit:contain;
       display:block;
-      filter:drop-shadow(0 8px 18px rgba(0,0,0,.20));
-    }
-
-    html[data-theme="dark"] .float-wa img{
-      filter:drop-shadow(0 10px 20px rgba(0,0,0,.34));
+      filter:drop-shadow(0 14px 30px rgba(0,0,0,.22));
     }
 
     .float-order{
@@ -932,7 +869,7 @@
     }
 
     @media (max-width:560px){
-      .float-wa{right:14px;width:56px;height:56px}
+      .float-wa{right:14px;width:54px;height:54px}
       .float-order{
         right:14px;
         left:14px;
@@ -1092,14 +1029,357 @@
     }
 
     .select-card strong,.choice-card strong,.location-card strong{display:block;margin-bottom:6px;font-size:16px}
-    .select-card p,.choice-card p,.location-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:800}  </style>
+    .select-card p,.choice-card p,.location-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:800}
+
+    .qty-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .qty-row strong{font-size:15px}
+
+    .qty-controls{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+    .qty-btn{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .qty-value{min-width:30px;text-align:center;font-size:20px;font-weight:900}
+
+    .zone-select-grid,.choice-grid,.location-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .location-grid{
+      max-height:320px;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    .location-grid::-webkit-scrollbar{width:8px}
+    .location-grid::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .zone-option-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .zone-option-top strong{font-size:16px}
+
+    .zone-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background:color-mix(in srgb, var(--accent), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
+      font-size:12px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .zone-option p{margin:0;color:var(--muted);font-size:14px;line-height:1.58;font-weight:800}
+
+    .summary-note{
+      padding:13px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--brand), transparent 92%);
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
+      color:var(--text);
+      font-size:13.5px;
+      line-height:1.56;
+      font-weight:900;
+    }
+
+    .warning-note{
+      padding:13px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--warning), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--warning), var(--line) 70%);
+      color:var(--text);
+      font-size:13.5px;
+      line-height:1.58;
+      font-weight:900;
+    }
+
+    .danger-note{
+      padding:13px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--danger), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--danger), var(--line) 68%);
+      color:var(--text);
+      font-size:13.5px;
+      line-height:1.58;
+      font-weight:900;
+      display:none;
+    }
+
+    .danger-note.show{display:block}
+
+    .help{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:18px;
+      height:18px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      background:color-mix(in srgb, var(--accent), transparent 86%);
+      color:color-mix(in srgb, var(--text), var(--accent) 18%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 68%);
+      flex:0 0 auto;
+      cursor:help;
+    }
+
+    .label-row{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      flex-wrap:wrap;
+    }
+
+    .helper-text{
+      margin-top:6px;
+      font-size:13px;
+      line-height:1.48;
+      color:var(--muted);
+      font-weight:900;
+    }
+
+    .modal-summary{display:grid;gap:10px}
+    .summary-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .summary-row span:first-child{color:var(--muted);font-weight:900}
+    .summary-row span:last-child{text-align:right;font-weight:900}
+    .summary-row.total{
+      padding-top:10px;
+      border-top:1px solid var(--line);
+      font-size:16px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    @media (max-width:640px){.form-grid{grid-template-columns:1fr}}
+
+    label{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+      font-size:13px;
+      font-weight:900;
+      color:var(--text);
+    }
+
+    input,textarea{
+      width:100%;
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:14px;
+      padding:14px 13px;
+      font-size:15px;
+      outline:none;
+      transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    input:focus,textarea:focus{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 42%);
+      box-shadow:0 0 0 4px color-mix(in srgb, var(--accent), transparent 84%);
+    }
+
+    textarea{min-height:108px;resize:vertical}
+    .full{grid-column:1 / -1}
+
+    .payment-box{
+      margin-top:14px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 52%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 60%), var(--surface);
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:10px;
+    }
+
+    .payment-box strong{
+      font-size:16px;
+      line-height:1.3;
+    }
+
+    .payment-box .pay-line{
+      font-size:14px;
+      line-height:1.55;
+      color:var(--text);
+      font-weight:900;
+      word-break:break-word;
+    }
+
+    .payment-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    @media (max-width:560px){
+      .payment-actions{grid-template-columns:1fr}
+    }
+
+    .copy-feedback{
+      min-height:16px;
+      font-size:13px;
+      color:var(--brand-deep);
+      font-weight:900;
+    }
+
+    html[data-theme="dark"] .copy-feedback{
+      color:#6ee7b7;
+    }
+
+    .local-info-card{
+      background:linear-gradient(180deg, color-mix(in srgb, var(--warning), transparent 92%), transparent 60%), var(--surface);
+      border:1px solid color-mix(in srgb, var(--warning), var(--line) 68%);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:12px;
+    }
+
+    .local-info-card h4{
+      margin:0;
+      font-size:22px;
+      line-height:1.1;
+    }
+
+    .local-info-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      font-weight:800;
+    }
+
+    .local-bullets{
+      display:grid;
+      gap:10px;
+    }
+
+    .local-bullet{
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:16px;
+      padding:13px 14px;
+      font-size:14px;
+      line-height:1.55;
+      font-weight:900;
+    }
+
+    .error{
+      font-size:13px;
+      font-weight:900;
+      color:var(--danger);
+      min-height:16px;
+    }
+
+    .hidden{display:none !important}
+
+    .modal-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding-top:2px;
+    }
+
+    @media (max-width:560px){
+      .modal-actions{
+        flex-direction:column-reverse;
+        align-items:stretch;
+      }
+      .modal-actions .btn{width:100%}
+    }
+
+    .step-badges{display:flex;gap:8px;flex-wrap:wrap}
+    .step-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:38px;
+      height:38px;
+      padding:0 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      font-size:12px;
+      font-weight:900;
+      color:var(--muted);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .step-badge.active{
+      background:color-mix(in srgb, var(--brand), transparent 88%);
+      border-color:color-mix(in srgb, var(--brand), var(--line) 56%);
+      color:color-mix(in srgb, var(--text), var(--brand) 16%);
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <span class="brand-logo">
-          <img src="https://iili.io/qBswmVj.md.png" alt="RECAMBIOS MK">
+          <img src="https://iili.io/qBswmVj.png" alt="RECAMBIOS MK">
         </span>
         <span class="brand-text">
           <strong>RECAMBIOS MK</strong>
@@ -1140,7 +1420,7 @@
             <div class="block hero-copy-card">
               <div class="hero-top">
                 <div class="hero-mark" aria-hidden="true">
-                  <img src="https://iili.io/qBswmVj.md.png" alt="Logo Recambios MK">
+                  <img src="https://iili.io/qBswmVj.png" alt="Logo Recambios MK">
                 </div>
 
                 <div class="hero-copy">
@@ -1170,7 +1450,7 @@
 
         <section class="section" aria-label="Banner principal">
           <div class="hero-banner-card">
-            <img class="hero-banner" src="https://iili.io/qBrN0QV.md.jpg" alt="Banner Recambios MK">
+            <img class="hero-banner" src="https://iili.io/qBDJzzl.jpg" alt="Banner Recambios MK">
           </div>
         </section>
 
@@ -1185,11 +1465,11 @@
               <span>De 8 a 20 hs</span>
             </article>
             <article class="chip-card">
-              <strong>Entregas</strong>
+              <strong>Tiempo de entrega</strong>
               <span>24 a 48 hs</span>
             </article>
             <article class="chip-card">
-              <strong>Logística</strong>
+              <strong>Horario entrega logística</strong>
               <span>17 a 22 hs</span>
             </article>
             <article class="chip-card">
@@ -1239,7 +1519,7 @@
                 <div class="bullet">
                   <div>
                     <strong>Compra simple, rápida y clara</strong>
-                    <p>Recambiamos tu cilindro Soda Stream original, recargado con 450 grs de CO2 nacional certificado ANMAT.</p>
+                    <p>Recambiamos tu cilindro Soda Stream original,(recargado con 450 grs de CO2 nacional certificado ANMAT).</p>
                   </div>
                 </div>
               </div>
@@ -1252,9 +1532,9 @@
           </div>
         </section>
 
-        <section class="section" aria-label="Banner de envíos">
-          <div class="zones-banner-card">
-            <img class="zones-banner" src="https://iili.io/qBAzxwB.jpg" alt="Banner de envíos Recambios MK">
+        <section class="section" aria-label="Banner envíos">
+          <div class="hero-banner-card">
+            <img class="hero-banner" src="https://iili.io/qBAzxwB.jpg" alt="Banner de envíos Recambios MK">
           </div>
         </section>
 
@@ -1275,7 +1555,7 @@
                 <div class="zone-thumb">
                   <img src="https://iili.io/qBARJ1t.jpg" alt="Zona 1">
                 </div>
-                <p>CABA, Morón, Ramos Mejía, Haedo, Lomas del Mirador, San Justo, La Tablada, Villa Madero, Ituzaingó, Hurlingham, 3 de Febrero.</p>
+                <p>Caba, Morón, Ramos Mejía, Haedo, Lomas del Mirador, San Justo, La Tablada, Villa Madero, Ituzaingó, Hurlingham, 3 de Febrero.</p>
               </article>
 
               <article class="zone-card">
@@ -1297,13 +1577,11 @@
                 <div class="zone-thumb">
                   <img src="https://iili.io/qBA7c0P.png" alt="Zona 3">
                 </div>
-                <p>Zárate, Campana, Escobar, Villa Rosa, Pilar, Luján, Marcos Paz, Gral. Rodríguez, Derqui, Del Viso, Garín, Tigre, Ingeniero Maschwitz, Cañuelas, Guernica, San Vicente, La Plata, Ensenada, Berisso.</p>
+                <p>Zárate, Campana, Escobar, Villa Rosa, Pilar, Luján, Marcos Paz, General Rodríguez, Derqui, Del Viso, Garín, Tigre, Ingeniero Maschwitz, Cañuelas, Guernica, San Vicente, La Plata, Ensenada, Berisso.</p>
               </article>
             </div>
           </div>
-        </section>
-
-        <section class="section" id="beneficios">
+        </section>        <section class="section" id="beneficios">
           <div class="section-head">
             <span class="eyebrow">Beneficios</span>
             <h2>Compra simple, rápida y clara</h2>
@@ -1380,7 +1658,9 @@
               <div class="results" id="zoneResults" aria-label="Resultados de localidades"></div>
             </div>
           </div>
-        </section>        <section class="section" id="faq">
+        </section>
+
+        <section class="section" id="faq">
           <div class="section-head">
             <span class="eyebrow">Preguntas frecuentes</span>
             <h2>Información útil antes de confirmar</h2>
@@ -1523,325 +1803,295 @@
     <a class="float-wa" href="https://wa.me/5491162843339" id="waFloat" aria-label="WhatsApp">
       <img src="https://iili.io/qBZhqGf.md.png" alt="WhatsApp">
     </a>
+  </div>
 
-    <div class="modal" id="cartModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-      <div class="modal-overlay" id="cartOverlay"></div>
+  <div class="modal" id="cartModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="modal-overlay" id="cartOverlay"></div>
 
-      <div class="modal-dialog">
-        <div class="modal-head">
-          <div>
-            <h3 id="cartTitle">Carrito de compra</h3>
-            <p id="cartSubtitle">Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.</p>
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <div>
+          <div class="step-badges" aria-hidden="true">
+            <span class="step-badge active" id="badgeStep1">Paso 1</span>
+            <span class="step-badge" id="badgeStep2">Paso 2</span>
+            <span class="step-badge" id="badgeStep3">Paso 3</span>
+            <span class="step-badge" id="badgeStep4">Paso 4</span>
+            <span class="step-badge" id="badgeStep5">Paso 5</span>
           </div>
-
-          <button class="modal-close" id="cartClose" type="button" aria-label="Cerrar carrito">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
+          <h3 id="cartTitle">Carrito de compra</h3>
+          <p id="cartSubtitle">Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.</p>
         </div>
 
-        <div class="modal-body">
-          <section class="checkout-step active" id="step1">
-            <div class="checkout-card">
-              <h4>Modalidad y cantidad</h4>
+        <button class="modal-close" id="cartClose" type="button" aria-label="Cerrar carrito">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
 
-              <div class="checkout-product">
-                <div class="thumb">
-                  <img src="https://iili.io/qBAzxwB.jpg" alt="Cilindro de recambio">
-                </div>
+      <div class="modal-body">
+        <section class="checkout-step active" id="step1">
+          <div class="checkout-card">
+            <h4>Modalidad y cantidad</h4>
 
-                <div>
-                  <h5>Cilindro de recambio</h5>
-                  <p>Elegí envío o retiro en local. Si seleccionás envío, el sistema te va guiando por zona, localidad, datos y pago. Si elegís retiro, la web solo informa el local y no coordina el retiro.</p>
-                </div>
+            <div class="checkout-product">
+              <div class="thumb">
+                <img src="https://iili.io/qBAzxwB.jpg" alt="Cilindro de recambio">
               </div>
 
-              <div style="height:14px"></div>
+              <div>
+                <h5>Cilindro de recambio</h5>
+                <p>Elegí envío o retiro en local. Si seleccionás envío, el sistema te va guiando por zona, localidad, datos y pago. Si elegís retiro, la web solo informa el local y no coordina el retiro.</p>
+              </div>
+            </div>
 
-              <div class="mode-grid">
-                <label class="select-card active" data-mode-card="envio">
-                  <input type="radio" name="modo" value="envio" checked>
-                  <strong>Envío</strong>
-                  <p>El total se calcula según cantidad y zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío.</p>
+            <div style="height:14px"></div>
+
+            <div class="mode-grid">
+              <label class="select-card active" data-mode-card="envio">
+                <input type="radio" name="modo" value="envio" checked>
+                <strong>Envío</strong>
+                <p>El total se calcula según cantidad y zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío.</p>
+              </label>
+
+              <label class="select-card" data-mode-card="retiro">
+                <input type="radio" name="modo" value="retiro">
+                <strong>Retiro en local</strong>
+                <p>Pago en el local $12.000. Stock permanente. La web no coordina retiros del local, solo informa.</p>
+              </label>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="qty-row">
+              <div>
+                <strong>Cantidad</strong>
+                <div class="helper-text">Podés sumar unidades y el total se recalcula solo. A partir de 7 se suma otro envío.</div>
+              </div>
+
+              <div class="qty-controls">
+                <button class="qty-btn" id="qtyMinus" type="button" aria-label="Restar cantidad">−</button>
+                <div class="qty-value" id="qtyValue">1</div>
+                <button class="qty-btn" id="qtyPlus" type="button" aria-label="Sumar cantidad">+</button>
+              </div>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="summary-note" id="step1Note">
+              Si elegís envío, en el próximo paso vas a seleccionar la zona de entrega.
+            </div>
+
+            <div class="error" id="step1Error"></div>
+
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnCloseStep1">Seguir viendo la web</button>
+              <button class="btn primary" type="button" id="btnStep1Next">Continuar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-step" id="step2">
+          <div class="checkout-card">
+            <h4 id="step2Title">Elegí tu zona de envío</h4>
+
+            <div id="zonesWrapStep2">
+              <div class="zone-select-grid">
+                <label class="zone-option" data-zone-card="1">
+                  <input type="radio" name="zonaEnvio" value="1">
+                  <div class="zone-option-top">
+                    <strong>Zona 1</strong>
+                    <span class="zone-badge">Envío $5.000</span>
+                  </div>
+                  <p>Caba, Morón, Ramos Mejía, Haedo, Lomas del Mirador, San Justo, La Tablada, Villa Madero, Ituzaingó, Hurlingham, 3 de Febrero.</p>
                 </label>
 
-                <label class="select-card" data-mode-card="retiro">
-                  <input type="radio" name="modo" value="retiro">
-                  <strong>Retiro en local</strong>
-                  <p>Pago en el local $12.000. Stock permanente. La web no coordina retiros del local, solo informa.</p>
+                <label class="zone-option" data-zone-card="2">
+                  <input type="radio" name="zonaEnvio" value="2">
+                  <div class="zone-option-top">
+                    <strong>Zona 2</strong>
+                    <span class="zone-badge">Envío $6.000</span>
+                  </div>
+                  <p>Vicente López, San Martín, San Isidro, San Fernando, Olivos, Malvinas Argentinas, San Miguel, José C. Paz, Moreno, Merlo, Ciudad Evita, Villa Celina, Aldo Bonzi, Isidro Casanova, Laferrere, Rafael Castillo, González Catán, Virrey del Pino, Avellaneda, Lanús, Lomas de Zamora, Quilmes, Berazategui, Florencio Varela, Almirante Brown, Esteban Echeverría, Ezeiza.</p>
+                </label>
+
+                <label class="zone-option" data-zone-card="3">
+                  <input type="radio" name="zonaEnvio" value="3">
+                  <div class="zone-option-top">
+                    <strong>Zona 3</strong>
+                    <span class="zone-badge">Envío $9.000</span>
+                  </div>
+                  <p>Zárate, Campana, Escobar, Villa Rosa, Pilar, Luján, Marcos Paz, General Rodríguez, Derqui, Del Viso, Garín, Tigre, Ingeniero Maschwitz, Cañuelas, Guernica, San Vicente, La Plata, Ensenada, Berisso.</p>
                 </label>
               </div>
+            </div>
 
-              <div style="height:14px"></div>
+            <div id="pickupStep2Info" class="hidden">
+              <div class="local-info-card">
+                <h4>Retirá directamente en el local</h4>
+                <p>Si elegiste retiro en local, no hace falta completar datos de envío ni mandar mensaje por WhatsApp.</p>
 
-              <div class="qty-row">
-                <div class="qty-info">
-                  <strong>Cantidad</strong>
-                  <div class="helper-text">Podés sumar unidades y el total se recalcula solo. A partir de 7 se suma otro envío.</div>
+                <div class="local-bullets">
+                  <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
+                  <div class="local-bullet">Días de atención: lunes a sábado</div>
+                  <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
+                  <div class="local-bullet">Pago en local: $12.000</div>
+                  <div class="local-bullet">Stock permanente</div>
+                  <div class="local-bullet">La web no coordina retiros del local, solo informa.</div>
                 </div>
-
-                <div class="qty-controls">
-                  <button class="qty-btn" id="qtyMinus" type="button" aria-label="Restar cantidad">−</button>
-                  <div class="qty-value" id="qtyValue">1</div>
-                  <button class="qty-btn" id="qtyPlus" type="button" aria-label="Sumar cantidad">+</button>
-                </div>
-              </div>
-
-              <div style="height:14px"></div>
-
-              <div class="summary-note" id="step1Note">
-                Si elegís envío, en el próximo paso vas a seleccionar la zona de entrega.
-              </div>
-
-              <div class="error" id="step1Error"></div>
-
-              <div class="modal-actions">
-                <button class="btn secondary" type="button" id="btnCloseStep1">Seguir viendo la web</button>
-                <button class="btn primary" type="button" id="btnStep1Next">Continuar</button>
               </div>
             </div>
-          </section>
 
-          <section class="checkout-step" id="step2">
-            <div class="checkout-card">
-              <h4 id="step2Title">Elegí tu zona de envío</h4>
+            <div class="error" id="step2Error"></div>
 
-              <div id="zonesWrapStep2">
-                <div class="zone-select-grid">
-                  <label class="zone-option" data-zone-card="1">
-                    <input type="radio" name="zonaEnvio" value="1">
-                    <div class="zone-option-top">
-                      <strong>Zona 1</strong>
-                      <span class="zone-badge">Envío $5.000</span>
-                    </div>
-                    <p>CABA, Morón, Ramos Mejía, Haedo, Lomas del Mirador, San Justo, La Tablada, Villa Madero, Ituzaingó, Hurlingham, 3 de Febrero.</p>
-                  </label>
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep2Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep2Next">Continuar</button>
+            </div>
+          </div>
+        </section>
 
-                  <label class="zone-option" data-zone-card="2">
-                    <input type="radio" name="zonaEnvio" value="2">
-                    <div class="zone-option-top">
-                      <strong>Zona 2</strong>
-                      <span class="zone-badge">Envío $6.000</span>
-                    </div>
-                    <p>Vicente López, San Martín, San Isidro, San Fernando, Olivos, Malvinas Argentinas, San Miguel, José C. Paz, Moreno, Merlo, Ciudad Evita, Villa Celina, Aldo Bonzi, Isidro Casanova, Laferrere, Rafael Castillo, González Catán, Virrey del Pino, Avellaneda, Lanús, Lomas de Zamora, Quilmes, Berazategui, Florencio Varela, Almirante Brown, Esteban Echeverría, Ezeiza.</p>
-                  </label>
+        <section class="checkout-step" id="step3">
+          <div class="checkout-card">
+            <h4 id="step3Title">Elegí tu localidad</h4>
 
-                  <label class="zone-option" data-zone-card="3">
-                    <input type="radio" name="zonaEnvio" value="3">
-                    <div class="zone-option-top">
-                      <strong>Zona 3</strong>
-                      <span class="zone-badge">Envío $9.000</span>
-                    </div>
-                    <p>Zárate, Campana, Escobar, Villa Rosa, Pilar, Luján, Marcos Paz, Gral. Rodríguez, Derqui, Del Viso, Garín, Tigre, Ingeniero Maschwitz, Cañuelas, Guernica, San Vicente, La Plata, Ensenada, Berisso.</p>
-                  </label>
+            <div id="locationStepWrap">
+              <div class="helper-text" id="locationStepHelp">Primero elegí una zona en el paso anterior.</div>
+              <div class="location-grid" id="locationStepGrid"></div>
+            </div>
+
+            <div id="pickupStep3Info" class="hidden">
+              <div class="local-info-card">
+                <h4>Información del local</h4>
+                <p>Podés acercarte directamente al local dentro de los días y horarios de atención.</p>
+
+                <div class="local-bullets">
+                  <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
+                  <div class="local-bullet">Días de atención: lunes a sábado</div>
+                  <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
+                  <div class="local-bullet">Pago en local: $12.000</div>
+                  <div class="local-bullet">Stock permanente</div>
                 </div>
-              </div>
-
-              <div id="pickupStep2Info" class="hidden">
-                <div class="local-info-card">
-                  <h4>Retirá directamente en el local</h4>
-                  <p>Si elegiste retiro en local, no hace falta completar datos de envío ni mandar mensaje por WhatsApp.</p>
-
-                  <div class="local-bullets">
-                    <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
-                    <div class="local-bullet">Días de atención: lunes a sábado</div>
-                    <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
-                    <div class="local-bullet">Pago en local: $12.000</div>
-                    <div class="local-bullet">Stock permanente</div>
-                    <div class="local-bullet">La web no coordina retiros del local, solo informa.</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="error" id="step2Error"></div>
-
-              <div class="modal-actions">
-                <button class="btn secondary" type="button" id="btnStep2Back">Volver</button>
-                <button class="btn primary" type="button" id="btnStep2Next">Continuar</button>
               </div>
             </div>
-          </section>
 
-          <section class="checkout-step" id="step3">
-            <div class="checkout-card">
-              <h4 id="step3Title">Elegí tu localidad</h4>
+            <div class="error" id="step3Error"></div>
 
-              <div id="locationStepWrap">
-                <div class="helper-text" id="locationStepHelp">Primero elegí una zona en el paso anterior.</div>
-                <div class="location-grid" id="locationStepGrid"></div>
-              </div>
-
-              <div id="pickupStep3Info" class="hidden">
-                <div class="local-info-card">
-                  <h4>Información del local</h4>
-                  <p>Podés acercarte directamente al local dentro de los días y horarios de atención.</p>
-
-                  <div class="local-bullets">
-                    <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
-                    <div class="local-bullet">Días de atención: lunes a sábado</div>
-                    <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
-                    <div class="local-bullet">Pago en local: $12.000</div>
-                    <div class="local-bullet">Stock permanente</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="error" id="step3Error"></div>
-
-              <div class="modal-actions">
-                <button class="btn secondary" type="button" id="btnStep3Back">Volver</button>
-                <button class="btn primary" type="button" id="btnStep3Next">Continuar</button>
-              </div>
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep3Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep3Next">Continuar</button>
             </div>
-          </section>
+          </div>
+        </section>        <section class="checkout-step" id="step4">
+          <div class="checkout-card">
+            <h4>Confirmá tu cilindro</h4>
 
-          <section class="checkout-step" id="step4">
-            <div class="checkout-card">
-              <h4>Confirmá tu cilindro</h4>
+            <div class="choice-grid">
+              <label class="choice-card" data-cylinder-card="si">
+                <input type="radio" name="hasCylinder" value="SI">
+                <strong>Sí, tengo cilindro vacío</strong>
+                <p>Podés continuar con el pedido y elegir el color del cilindro.</p>
+              </label>
 
+              <label class="choice-card" data-cylinder-card="no">
+                <input type="radio" name="hasCylinder" value="NO">
+                <strong>No tengo cilindro vacío</strong>
+                <p>La web no permite avanzar porque RECAMBIOS MK vende solo recambio.</p>
+              </label>
+            </div>
+
+            <div class="danger-note" id="noCylinderNote">
+              No se puede continuar sin cilindro vacío. RECAMBIOS MK vende únicamente recambio.
+            </div>
+
+            <div id="colorWrap" class="hidden" style="margin-top:14px;">
+              <h4 style="margin-top:0">Color del cilindro</h4>
               <div class="choice-grid">
-                <label class="choice-card" data-cylinder-card="si">
-                  <input type="radio" name="hasCylinder" value="SI">
-                  <strong>Sí, tengo cilindro vacío</strong>
-                  <p>Podés continuar con el pedido y elegir el color del cilindro.</p>
+                <label class="choice-card" data-color-card="Celeste">
+                  <input type="radio" name="cylinderColor" value="Celeste">
+                  <strong>Celeste</strong>
+                  <p>Seleccioná esta opción si tu cilindro es celeste.</p>
                 </label>
 
-                <label class="choice-card" data-cylinder-card="no">
-                  <input type="radio" name="hasCylinder" value="NO">
-                  <strong>No tengo cilindro vacío</strong>
-                  <p>La web no permite avanzar porque RECAMBIOS MK vende solo recambio.</p>
+                <label class="choice-card" data-color-card="Rosa">
+                  <input type="radio" name="cylinderColor" value="Rosa">
+                  <strong>Rosa</strong>
+                  <p>Seleccioná esta opción si tu cilindro es rosa.</p>
                 </label>
-              </div>
-
-              <div class="danger-note" id="noCylinderNote">
-                No se puede continuar sin cilindro vacío. RECAMBIOS MK vende únicamente recambio.
-              </div>
-
-              <div id="colorWrap" class="hidden" style="margin-top:14px;">
-                <h4 style="margin-top:0">Color del cilindro</h4>
-                <div class="choice-grid">
-                  <label class="choice-card" data-color-card="Celeste">
-                    <input type="radio" name="cylinderColor" value="Celeste">
-                    <strong>Celeste</strong>
-                    <p>Seleccioná esta opción si tu cilindro es celeste.</p>
-                  </label>
-
-                  <label class="choice-card" data-color-card="Rosa">
-                    <input type="radio" name="cylinderColor" value="Rosa">
-                    <strong>Rosa</strong>
-                    <p>Seleccioná esta opción si tu cilindro es rosa.</p>
-                  </label>
-                </div>
-              </div>
-
-              <div class="error" id="step4Error"></div>
-
-              <div class="modal-actions">
-                <button class="btn secondary" type="button" id="btnStep4Back">Volver</button>
-                <button class="btn primary" type="button" id="btnStep4Next">Continuar</button>
               </div>
             </div>
-          </section>
 
-          <section class="checkout-step" id="step5">
-            <div class="checkout-card">
-              <div id="shippingContent">
-                <h4>Datos finales</h4>
+            <div class="error" id="step4Error"></div>
 
-                <div class="form-grid">
-                  <label>
-                    <span class="label-row">Nombre y apellido <span class="help" title="Dato obligatorio para registrar el pedido.">i</span></span>
-                    <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name">
-                  </label>
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep4Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep4Next">Continuar</button>
+            </div>
+          </div>
+        </section>
 
-                  <label>
-                    <span class="label-row">Teléfono <span class="help" title="Se usa para completar el pedido y dejar el contacto registrado.">i</span></span>
-                    <input id="fTelefono" type="tel" placeholder="Ej: 11 2345 6789" inputmode="tel" autocomplete="tel">
-                  </label>
+        <section class="checkout-step" id="step5">
+          <div class="checkout-card">
+            <div id="shippingContent">
+              <h4>Datos finales</h4>
 
-                  <label id="locationField">
-                    <span class="label-row">Localidad seleccionada</span>
-                    <input id="fLocationText" type="text" readonly>
-                  </label>
+              <div class="form-grid">
+                <label>
+                  <span class="label-row">Nombre y apellido <span class="help" title="Dato obligatorio para registrar el pedido.">i</span></span>
+                  <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name">
+                </label>
 
-                  <label id="streetField">
-                    <span class="label-row">Dirección <span class="help" title="Dato obligatorio para entregas a domicilio.">i</span></span>
-                    <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
-                  </label>
+                <label>
+                  <span class="label-row">Teléfono <span class="help" title="Se usa para completar el pedido y dejar el contacto registrado.">i</span></span>
+                  <input id="fTelefono" type="tel" placeholder="Ej: 11 2345 6789" inputmode="tel" autocomplete="tel">
+                </label>
 
-                  <label id="floorField">
-                    <span class="label-row">Piso / Depto <span class="help" title="Ejemplo: Piso 2 Depto B.">i</span></span>
-                    <input id="fPisoDepto" type="text" placeholder="Ej: Piso 2 Depto B">
-                  </label>
+                <label id="locationField">
+                  <span class="label-row">Localidad seleccionada</span>
+                  <input id="fLocationText" type="text" readonly>
+                </label>
 
-                  <label class="full">
-                    <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, entre calles.">i</span></span>
-                    <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Entre calles">
-                  </label>
+                <label id="streetField">
+                  <span class="label-row">Dirección <span class="help" title="Dato obligatorio para entregas a domicilio.">i</span></span>
+                  <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
+                </label>
 
-                  <label class="full">
-                    <span class="label-row">Nota (opcional) <span class="help" title="Podés dejar una aclaración extra para el pedido.">i</span></span>
-                    <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy, mejor."></textarea>
-                  </label>
-                </div>
+                <label id="floorField">
+                  <span class="label-row">Piso / Depto <span class="help" title="Ejemplo: Piso 2 Depto B.">i</span></span>
+                  <input id="fPisoDepto" type="text" placeholder="Ej: Piso 2 Depto B">
+                </label>
 
-                <div class="payments-section" id="paymentBoxWrap">
-                  <div class="payments-intro">
-                    Copiá el CBU o el alias para habilitar el envío del pedido por WhatsApp. Después de transferir, enviá el pedido prearmado junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
+                <label class="full">
+                  <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, entre calles.">i</span></span>
+                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Entre calles">
+                </label>
+
+                <label class="full">
+                  <span class="label-row">Nota (opcional) <span class="help" title="Podés dejar una aclaración extra para el pedido.">i</span></span>
+                  <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy, mejor."></textarea>
+                </label>
+              </div>
+
+              <div id="paymentBoxWrap">
+                <div class="payment-box">
+                  <strong>Datos para transferencia</strong>
+                  <div class="pay-line"><b>CBU:</b> <span id="cbuValue">0000003100037411221896</span></div>
+                  <div class="pay-line"><b>Alias:</b> <span id="aliasValue">muralo3.mp</span></div>
+                  <div class="pay-line"><b>Titular:</b> Mariano Quercia</div>
+
+                  <div class="payment-actions">
+                    <button class="btn copy-pay" type="button" id="copyCbuBtn">Copiar CBU</button>
+                    <button class="btn copy-pay" type="button" id="copyAliasBtn">Copiar alias</button>
                   </div>
 
-                  <div class="payments-grid">
-                    <div class="payment-option">
-                      <div>
-                        <h5>Opción 1</h5>
-                        <small>Cuenta Mercado Pago • Titular: Mariano Quercia</small>
-                      </div>
-
-                      <div class="payment-line">
-                        <strong>CBU</strong>
-                        <span id="cbuValue1">0000003100037411221896</span>
-                      </div>
-
-                      <div class="payment-line">
-                        <strong>Alias</strong>
-                        <span id="aliasValue1">muralo3.mp</span>
-                      </div>
-
-                      <div class="payment-actions">
-                        <button class="btn copy-pay" type="button" id="copyCbuBtn1">Copiar CBU</button>
-                        <button class="btn copy-pay" type="button" id="copyAliasBtn1">Copiar alias</button>
-                      </div>
-                    </div>
-
-                    <div class="payment-option">
-                      <div>
-                        <h5>Opción 2</h5>
-                        <small>Lemon Cash • Titular: MARIANO QUERCIA • CUIT/CUIL: 20241426433</small>
-                      </div>
-
-                      <div class="payment-line">
-                        <strong>CBU</strong>
-                        <span id="cbuValue2">0000168300000018558924</span>
-                      </div>
-
-                      <div class="payment-line">
-                        <strong>Alias</strong>
-                        <span id="aliasValue2">MURALO.SODA.5</span>
-                      </div>
-
-                      <div class="payment-actions">
-                        <button class="btn copy-pay" type="button" id="copyCbuBtn2">Copiar CBU</button>
-                        <button class="btn copy-pay" type="button" id="copyAliasBtn2">Copiar alias</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="copy-feedback" id="copyFeedback">Para continuar, primero copiá un CBU o alias.</div>
+                  <div class="copy-feedback" id="copyFeedback"></div>
                 </div>
+              </div>
 
-                <div style="height:14px"></div>
+              <div style="height:14px"></div>
 
+              <aside class="checkout-card" style="padding:14px;">
+                <h4 style="margin-bottom:10px;">Resumen final</h4>
                 <div class="modal-summary">
                   <div class="summary-row">
                     <span>Modalidad</span>
@@ -1883,42 +2133,42 @@
                     <span id="summaryTotal2">$16.000</span>
                   </div>
                 </div>
+              </aside>
 
-                <div class="summary-note" id="step5SummaryNote" style="margin-top:14px;">
-                  Copiá el CBU o el alias para habilitar el envío del pedido por WhatsApp. Después de pagar, enviá el pedido prearmado junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
-                </div>
-
-                <div class="error" id="formError"></div>
-
-                <div class="modal-actions">
-                  <button class="btn secondary" type="button" id="btnStep5Back">Volver</button>
-                  <button class="btn primary disabled" type="button" id="btnSendOrder" aria-disabled="true">Enviar pedido por WhatsApp</button>
-                </div>
+              <div class="summary-note" id="step5SummaryNote" style="margin-top:14px;">
+                Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
               </div>
 
-              <div id="pickupFinalContent" class="hidden">
-                <div class="local-info-card">
-                  <h4>Retirá directamente en el local</h4>
-                  <p>Como elegiste retiro en local, no tenés que completar datos de envío ni mandar mensaje. Solo acercate dentro de los días y horarios de atención.</p>
+              <div class="error" id="formError"></div>
 
-                  <div class="local-bullets">
-                    <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
-                    <div class="local-bullet">Días de atención: lunes a sábado</div>
-                    <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
-                    <div class="local-bullet">Pago en local: $12.000</div>
-                    <div class="local-bullet">Stock permanente</div>
-                    <div class="local-bullet">La web no coordina retiros del local, solo informa.</div>
-                  </div>
-                </div>
-
-                <div class="modal-actions" style="margin-top:14px;">
-                  <button class="btn secondary" type="button" id="btnPickupBack">Volver</button>
-                  <button class="btn primary" type="button" id="btnPickupClose">Entendido</button>
-                </div>
+              <div class="modal-actions">
+                <button class="btn secondary" type="button" id="btnStep5Back">Volver</button>
+                <button class="btn primary" type="button" id="btnSendOrder">Enviar pedido por WhatsApp</button>
               </div>
             </div>
-          </section>
-        </div>
+
+            <div id="pickupFinalContent" class="hidden">
+              <div class="local-info-card">
+                <h4>Retirá directamente en el local</h4>
+                <p>Como elegiste retiro en local, no tenés que completar datos de envío ni mandar mensaje. Solo acercate dentro de los días y horarios de atención.</p>
+
+                <div class="local-bullets">
+                  <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
+                  <div class="local-bullet">Días de atención: lunes a sábado</div>
+                  <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
+                  <div class="local-bullet">Pago en local: $12.000</div>
+                  <div class="local-bullet">Stock permanente</div>
+                  <div class="local-bullet">La web no coordina retiros del local, solo informa.</div>
+                </div>
+              </div>
+
+              <div class="modal-actions" style="margin-top:14px;">
+                <button class="btn secondary" type="button" id="btnPickupBack">Volver</button>
+                <button class="btn primary" type="button" id="btnPickupClose">Entendido</button>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -1928,32 +2178,20 @@
       const WA_NUMBER = "5491162843339";
       const PRICE_RETIRO = 12000;
       const PRICE_ENVIO_BASE = 11000;
-      const PAYMENT_OPTIONS = {
-        mp: {
-          label: "Opción 1",
-          cbu: "0000003100037411221896",
-          alias: "muralo3.mp"
-        },
-        lemon: {
-          label: "Opción 2",
-          cbu: "0000168300000018558924",
-          alias: "MURALO.SODA.5"
-        }
-      };
+      const COPY_CBU = "0000003100037411221896";
+      const COPY_ALIAS = "muralo3.mp";
 
       const ZONES = {
         1: {
           name: "Zona 1",
           shipping: 5000,
-          description: "CABA, Morón, Ramos Mejía, Haedo, Lomas del Mirador, San Justo, La Tablada, Villa Madero, Ituzaingó, Hurlingham, 3 de Febrero.",
           options: [
-            "CABA","Morón","Ramos Mejía","Haedo","Lomas del Mirador","San Justo","La Tablada","Villa Madero","Ituzaingó","Hurlingham","3 de Febrero"
+            "Caba","Morón","Ramos Mejía","Haedo","Lomas del Mirador","San Justo","La Tablada","Villa Madero","Ituzaingó","Hurlingham","3 de Febrero"
           ]
         },
         2: {
           name: "Zona 2",
           shipping: 6000,
-          description: "Vicente López, San Martín, San Isidro, San Fernando, Olivos, Malvinas Argentinas, San Miguel, José C. Paz, Moreno, Merlo, Ciudad Evita, Villa Celina, Aldo Bonzi, Isidro Casanova, Laferrere, Rafael Castillo, González Catán, Virrey del Pino, Avellaneda, Lanús, Lomas de Zamora, Quilmes, Berazategui, Florencio Varela, Almirante Brown, Esteban Echeverría, Ezeiza.",
           options: [
             "Vicente López","San Martín","San Isidro","San Fernando","Olivos","Malvinas Argentinas","San Miguel","José C. Paz","Moreno","Merlo","Ciudad Evita","Villa Celina","Aldo Bonzi","Isidro Casanova","Laferrere","Rafael Castillo","González Catán","Virrey del Pino","Avellaneda","Lanús","Lomas de Zamora","Quilmes","Berazategui","Florencio Varela","Almirante Brown","Esteban Echeverría","Ezeiza"
           ]
@@ -1961,9 +2199,8 @@
         3: {
           name: "Zona 3",
           shipping: 9000,
-          description: "Zárate, Campana, Escobar, Villa Rosa, Pilar, Luján, Marcos Paz, Gral. Rodríguez, Derqui, Del Viso, Garín, Tigre, Ingeniero Maschwitz, Cañuelas, Guernica, San Vicente, La Plata, Ensenada, Berisso.",
           options: [
-            "Zárate","Campana","Escobar","Villa Rosa","Pilar","Luján","Marcos Paz","Gral. Rodríguez","Derqui","Del Viso","Garín","Tigre","Ingeniero Maschwitz","Cañuelas","Guernica","San Vicente","La Plata","Ensenada","Berisso"
+            "Zárate","Campana","Escobar","Villa Rosa","Pilar","Luján","Marcos Paz","General Rodríguez","Derqui","Del Viso","Garín","Tigre","Ingeniero Maschwitz","Cañuelas","Guernica","San Vicente","La Plata","Ensenada","Berisso"
           ]
         }
       };
@@ -1983,8 +2220,7 @@
         zone: null,
         location: "",
         hasCylinder: null,
-        color: null,
-        paymentCopied: false
+        color: null
       };
 
       function formatMoney(n){
@@ -2062,13 +2298,14 @@
         $("step3Error").textContent = "";
         $("step4Error").textContent = "";
         $("formError").textContent = "";
-        $("copyFeedback").textContent = "Para continuar, primero copiá un CBU o alias.";
+        $("copyFeedback").textContent = "";
       }
 
       function goStep(step){
         state.step = step;
         [1,2,3,4,5].forEach(n => {
           $("step" + n).classList.toggle("active", n === step);
+          $("badgeStep" + n).classList.toggle("active", n === step);
         });
 
         const subtitles = {
@@ -2091,7 +2328,6 @@
 
       function setMode(mode){
         state.mode = mode === "retiro" ? "retiro" : "envio";
-        state.paymentCopied = false;
         if(state.mode === "retiro"){
           state.zone = null;
           state.location = "Retiro en local - Haedo";
@@ -2106,14 +2342,12 @@
       function setZone(zone){
         state.zone = Number(zone) || null;
         state.location = "";
-        state.paymentCopied = false;
         renderLocationOptions();
         updateSummary();
       }
 
       function setLocation(location){
         state.location = location || "";
-        state.paymentCopied = false;
         updateSummary();
       }
 
@@ -2123,13 +2357,11 @@
           state.color = null;
           document.querySelectorAll('input[name="cylinderColor"]').forEach(i => i.checked = false);
         }
-        state.paymentCopied = false;
         updateSummary();
       }
 
       function setColor(value){
         state.color = value === "Celeste" || value === "Rosa" ? value : null;
-        state.paymentCopied = false;
         updateSummary();
       }
 
@@ -2189,14 +2421,7 @@
         $("step3Title").textContent = isRetiro ? "Información del local" : "Elegí tu localidad";
 
         $("fLocationText").value = isRetiro ? "Retiro en local - Haedo" : (state.location || "");
-        $("step5SummaryNote").textContent = "Copiá el CBU o el alias para habilitar el envío del pedido por WhatsApp. Después de pagar, enviá el pedido prearmado junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.";
-      }
-
-      function updateSendButton(){
-        const btn = $("btnSendOrder");
-        const enabled = state.paymentCopied && state.mode === "envio";
-        btn.classList.toggle("disabled", !enabled);
-        btn.setAttribute("aria-disabled", enabled ? "false" : "true");
+        $("step5SummaryNote").textContent = "Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.";
       }
 
       function updateSummary(){
@@ -2230,7 +2455,6 @@
         $("noCylinderNote").classList.toggle("show", state.hasCylinder === "NO");
         $("colorWrap").classList.toggle("hidden", state.hasCylinder !== "SI");
         syncFlowByMode();
-        updateSendButton();
       }
 
       function validateStep1(){
@@ -2294,11 +2518,6 @@
         if(!calle){
           $("formError").textContent = "Completá la dirección para el envío.";
           $("fCalle").focus();
-          return false;
-        }
-
-        if(!state.paymentCopied){
-          $("formError").textContent = "Primero copiá un CBU o alias para habilitar el envío del pedido.";
           return false;
         }
 
@@ -2436,6 +2655,7 @@
       async function copyOnly(value, label){
         try{
           await navigator.clipboard.writeText(value);
+          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
         }catch(e){
           const temp = document.createElement("textarea");
           temp.value = value;
@@ -2443,10 +2663,8 @@
           temp.select();
           document.execCommand("copy");
           document.body.removeChild(temp);
+          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
         }
-        state.paymentCopied = true;
-        $("copyFeedback").textContent = "Copiado: " + label + ". Ahora ya podés enviar el pedido por WhatsApp.";
-        updateSendButton();
       }
 
       function setupButtons(){
@@ -2466,10 +2684,8 @@
           openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
         });
 
-        $("copyCbuBtn1").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.mp.cbu, "CBU de Opción 1"); });
-        $("copyAliasBtn1").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.mp.alias, "alias de Opción 1"); });
-        $("copyCbuBtn2").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.lemon.cbu, "CBU de Opción 2"); });
-        $("copyAliasBtn2").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.lemon.alias, "alias de Opción 2"); });
+        $("copyCbuBtn").addEventListener("click", function(){ copyOnly(COPY_CBU, "CBU"); });
+        $("copyAliasBtn").addEventListener("click", function(){ copyOnly(COPY_ALIAS, "alias"); });
 
         $("qtyMinus").addEventListener("click", function(){ setQty(state.qty - 1); });
         $("qtyPlus").addEventListener("click", function(){ setQty(state.qty + 1); });
