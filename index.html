@@ -182,9 +182,16 @@
       color:#fff;
       border:1px solid color-mix(in srgb, var(--accent), #fff 30%);
       box-shadow:0 16px 34px color-mix(in srgb, var(--accent), transparent 66%);
-      font-size:15px;
-      min-height:52px;
+      font-size:14px;
+      min-height:50px;
       width:100%;
+    }
+    .btn.disabled{
+      opacity:.5;
+      cursor:not-allowed;
+      pointer-events:none;
+      transform:none !important;
+      box-shadow:none;
     }
 
     .topbar{
@@ -1000,23 +1007,34 @@
     .select-card p,.choice-card p,.location-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:800}
 
     .qty-row{
-      display:flex;
+      display:grid;
+      grid-template-columns:1fr auto;
       align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px;
+      gap:18px;
+      padding:18px;
       border-radius:18px;
       border:1px solid var(--line);
       background:var(--surface);
       box-shadow:var(--shadow-soft);
     }
 
-    .qty-row strong{font-size:15px}
+    .qty-row strong{font-size:16px}
+    .qty-info{display:grid;gap:6px}
 
-    .qty-controls{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+    .qty-controls{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex:0 0 auto;
+      padding:8px;
+      border-radius:16px;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+    }
+
     .qty-btn{
-      width:42px;
-      height:42px;
+      width:44px;
+      height:44px;
       border-radius:14px;
       border:1px solid var(--line);
       background:var(--surface);
@@ -1027,7 +1045,17 @@
       box-shadow:var(--shadow-soft);
     }
 
-    .qty-value{min-width:30px;text-align:center;font-size:20px;font-weight:900}
+    .qty-value{min-width:34px;text-align:center;font-size:21px;font-weight:900}
+
+    @media (max-width:620px){
+      .qty-row{
+        grid-template-columns:1fr;
+        align-items:stretch;
+      }
+      .qty-controls{
+        justify-content:center;
+      }
+    }
 
     .zone-select-grid,.choice-grid,.location-grid{
       display:grid;
@@ -1081,17 +1109,6 @@
       color:var(--text);
       font-size:13.5px;
       line-height:1.56;
-      font-weight:900;
-    }
-
-    .warning-note{
-      padding:13px;
-      border-radius:16px;
-      background:color-mix(in srgb, var(--warning), transparent 90%);
-      border:1px solid color-mix(in srgb, var(--warning), var(--line) 70%);
-      color:var(--text);
-      font-size:13.5px;
-      line-height:1.58;
       font-weight:900;
     }
 
@@ -1196,26 +1213,68 @@
     textarea{min-height:108px;resize:vertical}
     .full{grid-column:1 / -1}
 
-    .payment-box{
-      margin-top:14px;
-      padding:14px;
-      border-radius:18px;
-      border:1px solid color-mix(in srgb, var(--accent), var(--line) 52%);
+    .payments-section{
+      margin-top:18px;
+      display:grid;
+      gap:14px;
+    }
+
+    .payments-intro{
+      padding:0;
+      font-size:14px;
+      line-height:1.6;
+      font-weight:900;
+      color:var(--text);
+    }
+
+    .payments-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .payment-option{
+      padding:16px;
+      border-radius:20px;
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 55%);
       background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 60%), var(--surface);
       box-shadow:var(--shadow-soft);
       display:grid;
-      gap:10px;
+      gap:12px;
     }
 
-    .payment-box strong{
-      font-size:16px;
+    .payment-option h5{
+      margin:0;
+      font-size:17px;
       line-height:1.3;
     }
 
-    .payment-box .pay-line{
+    .payment-option small{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      font-weight:900;
+      margin-top:2px;
+    }
+
+    .payment-line{
+      display:grid;
+      gap:5px;
+      padding:11px 12px;
+      border-radius:14px;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+    }
+
+    .payment-line strong{
+      font-size:13px;
+      line-height:1.3;
+    }
+
+    .payment-line span{
       font-size:14px;
-      line-height:1.55;
-      color:var(--text);
+      line-height:1.5;
       font-weight:900;
       word-break:break-word;
     }
@@ -1224,10 +1283,6 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:10px;
-    }
-
-    @media (max-width:560px){
-      .payment-actions{grid-template-columns:1fr}
     }
 
     .copy-feedback{
@@ -1306,29 +1361,6 @@
       .modal-actions .btn{width:100%}
     }
 
-    .step-badges{display:flex;gap:8px;flex-wrap:wrap}
-    .step-badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:38px;
-      height:38px;
-      padding:0 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:var(--surface);
-      font-size:12px;
-      font-weight:900;
-      color:var(--muted);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .step-badge.active{
-      background:color-mix(in srgb, var(--brand), transparent 88%);
-      border-color:color-mix(in srgb, var(--brand), var(--line) 56%);
-      color:color-mix(in srgb, var(--text), var(--brand) 16%);
-    }
-
     .sr-only{
       position:absolute;
       width:1px;
@@ -1339,6 +1371,37 @@
       clip:rect(0,0,0,0);
       white-space:nowrap;
       border:0;
+    }
+
+    @media (max-width:860px){
+      .modal{
+        padding:0;
+        align-items:stretch;
+        justify-content:stretch;
+      }
+      .modal-dialog{
+        width:100%;
+        max-height:100dvh;
+        min-height:100dvh;
+        border-radius:0;
+        border-left:none;
+        border-right:none;
+        border-bottom:none;
+      }
+      .modal-head{
+        border-radius:0;
+        padding:16px 16px 14px;
+      }
+      .modal-body{
+        padding:14px;
+      }
+      .checkout-card{
+        padding:14px;
+        border-radius:18px;
+      }
+      .payments-grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -1777,13 +1840,6 @@
     <div class="modal-dialog">
       <div class="modal-head">
         <div>
-          <div class="step-badges" aria-hidden="true">
-            <span class="step-badge active" id="badgeStep1">Paso 1</span>
-            <span class="step-badge" id="badgeStep2">Paso 2</span>
-            <span class="step-badge" id="badgeStep3">Paso 3</span>
-            <span class="step-badge" id="badgeStep4">Paso 4</span>
-            <span class="step-badge" id="badgeStep5">Paso 5</span>
-          </div>
           <h3 id="cartTitle">Carrito de compra</h3>
           <p id="cartSubtitle">Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.</p>
         </div>
@@ -1830,7 +1886,7 @@
             <div style="height:14px"></div>
 
             <div class="qty-row">
-              <div>
+              <div class="qty-info">
                 <strong>Cantidad</strong>
                 <div class="helper-text">Podés sumar unidades y el total se recalcula solo. A partir de 7 se suma otro envío.</div>
               </div>
@@ -2040,78 +2096,113 @@
                 </label>
               </div>
 
-              <div id="paymentBoxWrap">
-                <div class="payment-box">
-                  <strong>Datos para transferencia</strong>
-                  <div class="pay-line"><b>CBU:</b> <span id="cbuValue">0000003100037411221896</span></div>
-                  <div class="pay-line"><b>Alias:</b> <span id="aliasValue">muralo3.mp</span></div>
-                  <div class="pay-line"><b>Titular:</b> Mariano Quercia</div>
+              <div class="payments-section" id="paymentBoxWrap">
+                <div class="payments-intro">
+                  Copiá el CBU o el alias para habilitar el envío del pedido por WhatsApp. Después de transferir, enviá el pedido prearmado junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
+                </div>
 
-                  <div class="payment-actions">
-                    <button class="btn copy-pay" type="button" id="copyCbuBtn">Copiar CBU</button>
-                    <button class="btn copy-pay" type="button" id="copyAliasBtn">Copiar alias</button>
+                <div class="payments-grid">
+                  <div class="payment-option">
+                    <div>
+                      <h5>Opción 1</h5>
+                      <small>Cuenta Mercado Pago • Titular: Mariano Quercia</small>
+                    </div>
+
+                    <div class="payment-line">
+                      <strong>CBU</strong>
+                      <span id="cbuValue1">0000003100037411221896</span>
+                    </div>
+
+                    <div class="payment-line">
+                      <strong>Alias</strong>
+                      <span id="aliasValue1">muralo3.mp</span>
+                    </div>
+
+                    <div class="payment-actions">
+                      <button class="btn copy-pay" type="button" id="copyCbuBtn1">Copiar CBU</button>
+                      <button class="btn copy-pay" type="button" id="copyAliasBtn1">Copiar alias</button>
+                    </div>
                   </div>
 
-                  <div class="copy-feedback" id="copyFeedback"></div>
+                  <div class="payment-option">
+                    <div>
+                      <h5>Opción 2</h5>
+                      <small>Lemon Cash • Titular: MARIANO QUERCIA • CUIT/CUIL: 20241426433</small>
+                    </div>
+
+                    <div class="payment-line">
+                      <strong>CBU</strong>
+                      <span id="cbuValue2">0000168300000018558924</span>
+                    </div>
+
+                    <div class="payment-line">
+                      <strong>Alias</strong>
+                      <span id="aliasValue2">MURALO.SODA.5</span>
+                    </div>
+
+                    <div class="payment-actions">
+                      <button class="btn copy-pay" type="button" id="copyCbuBtn2">Copiar CBU</button>
+                      <button class="btn copy-pay" type="button" id="copyAliasBtn2">Copiar alias</button>
+                    </div>
+                  </div>
                 </div>
+
+                <div class="copy-feedback" id="copyFeedback">Para continuar, primero copiá un CBU o alias.</div>
               </div>
 
               <div style="height:14px"></div>
 
-              <aside class="checkout-card" style="padding:14px;">
-                <h4 style="margin-bottom:10px;">Resumen final</h4>
-                <div class="modal-summary">
-                  <div class="summary-row">
-                    <span>Modalidad</span>
-                    <span id="summaryMode2">Envío</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span>Precio por unidad</span>
-                    <span id="summaryUnit2">$11.000</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span>Cantidad</span>
-                    <span id="summaryQty2">1</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span>Zona / retiro</span>
-                    <span id="summaryZone2">Zona 1</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span>Localidad</span>
-                    <span id="summaryLocation2">Sin definir</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span>Cilindro</span>
-                    <span id="summaryCylinder2">Sí</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span>Color</span>
-                    <span id="summaryColor2">Celeste</span>
-                  </div>
-
-                  <div class="summary-row total">
-                    <span>Total</span>
-                    <span id="summaryTotal2">$16.000</span>
-                  </div>
+              <div class="modal-summary">
+                <div class="summary-row">
+                  <span>Modalidad</span>
+                  <span id="summaryMode2">Envío</span>
                 </div>
-              </aside>
+
+                <div class="summary-row">
+                  <span>Precio por unidad</span>
+                  <span id="summaryUnit2">$11.000</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Cantidad</span>
+                  <span id="summaryQty2">1</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Zona / retiro</span>
+                  <span id="summaryZone2">Zona 1</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Localidad</span>
+                  <span id="summaryLocation2">Sin definir</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Cilindro</span>
+                  <span id="summaryCylinder2">Sí</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Color</span>
+                  <span id="summaryColor2">Celeste</span>
+                </div>
+
+                <div class="summary-row total">
+                  <span>Total</span>
+                  <span id="summaryTotal2">$16.000</span>
+                </div>
+              </div>
 
               <div class="summary-note" id="step5SummaryNote" style="margin-top:14px;">
-                Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
+                Copiá el CBU o el alias para habilitar el envío del pedido por WhatsApp. Después de pagar, enviá el pedido prearmado junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
               </div>
 
               <div class="error" id="formError"></div>
 
               <div class="modal-actions">
                 <button class="btn secondary" type="button" id="btnStep5Back">Volver</button>
-                <button class="btn primary" type="button" id="btnSendOrder">Enviar pedido por WhatsApp</button>
+                <button class="btn primary disabled" type="button" id="btnSendOrder" aria-disabled="true">Enviar pedido por WhatsApp</button>
               </div>
             </div>
 
@@ -2146,8 +2237,18 @@
       const WA_NUMBER = "5491162843339";
       const PRICE_RETIRO = 12000;
       const PRICE_ENVIO_BASE = 11000;
-      const COPY_CBU = "0000003100037411221896";
-      const COPY_ALIAS = "muralo3.mp";
+      const PAYMENT_OPTIONS = {
+        mp: {
+          label: "Opción 1",
+          cbu: "0000003100037411221896",
+          alias: "muralo3.mp"
+        },
+        lemon: {
+          label: "Opción 2",
+          cbu: "0000168300000018558924",
+          alias: "MURALO.SODA.5"
+        }
+      };
 
       const ZONES = {
         1: {
@@ -2188,7 +2289,8 @@
         zone: null,
         location: "",
         hasCylinder: null,
-        color: null
+        color: null,
+        paymentCopied: false
       };
 
       function formatMoney(n){
@@ -2266,14 +2368,13 @@
         $("step3Error").textContent = "";
         $("step4Error").textContent = "";
         $("formError").textContent = "";
-        $("copyFeedback").textContent = "";
+        $("copyFeedback").textContent = "Para continuar, primero copiá un CBU o alias.";
       }
 
       function goStep(step){
         state.step = step;
         [1,2,3,4,5].forEach(n => {
           $("step" + n).classList.toggle("active", n === step);
-          $("badgeStep" + n).classList.toggle("active", n === step);
         });
 
         const subtitles = {
@@ -2296,6 +2397,7 @@
 
       function setMode(mode){
         state.mode = mode === "retiro" ? "retiro" : "envio";
+        state.paymentCopied = false;
         if(state.mode === "retiro"){
           state.zone = null;
           state.location = "Retiro en local - Haedo";
@@ -2310,12 +2412,14 @@
       function setZone(zone){
         state.zone = Number(zone) || null;
         state.location = "";
+        state.paymentCopied = false;
         renderLocationOptions();
         updateSummary();
       }
 
       function setLocation(location){
         state.location = location || "";
+        state.paymentCopied = false;
         updateSummary();
       }
 
@@ -2325,11 +2429,13 @@
           state.color = null;
           document.querySelectorAll('input[name="cylinderColor"]').forEach(i => i.checked = false);
         }
+        state.paymentCopied = false;
         updateSummary();
       }
 
       function setColor(value){
         state.color = value === "Celeste" || value === "Rosa" ? value : null;
+        state.paymentCopied = false;
         updateSummary();
       }
 
@@ -2389,7 +2495,14 @@
         $("step3Title").textContent = isRetiro ? "Información del local" : "Elegí tu localidad";
 
         $("fLocationText").value = isRetiro ? "Retiro en local - Haedo" : (state.location || "");
-        $("step5SummaryNote").textContent = "Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.";
+        $("step5SummaryNote").textContent = "Copiá el CBU o el alias para habilitar el envío del pedido por WhatsApp. Después de pagar, enviá el pedido prearmado junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.";
+      }
+
+      function updateSendButton(){
+        const btn = $("btnSendOrder");
+        const enabled = state.paymentCopied && state.mode === "envio";
+        btn.classList.toggle("disabled", !enabled);
+        btn.setAttribute("aria-disabled", enabled ? "false" : "true");
       }
 
       function updateSummary(){
@@ -2423,6 +2536,7 @@
         $("noCylinderNote").classList.toggle("show", state.hasCylinder === "NO");
         $("colorWrap").classList.toggle("hidden", state.hasCylinder !== "SI");
         syncFlowByMode();
+        updateSendButton();
       }
 
       function validateStep1(){
@@ -2486,6 +2600,11 @@
         if(!calle){
           $("formError").textContent = "Completá la dirección para el envío.";
           $("fCalle").focus();
+          return false;
+        }
+
+        if(!state.paymentCopied){
+          $("formError").textContent = "Primero copiá un CBU o alias para habilitar el envío del pedido.";
           return false;
         }
 
@@ -2623,7 +2742,6 @@
       async function copyOnly(value, label){
         try{
           await navigator.clipboard.writeText(value);
-          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
         }catch(e){
           const temp = document.createElement("textarea");
           temp.value = value;
@@ -2631,8 +2749,10 @@
           temp.select();
           document.execCommand("copy");
           document.body.removeChild(temp);
-          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
         }
+        state.paymentCopied = true;
+        $("copyFeedback").textContent = "Copiado: " + label + ". Ahora ya podés enviar el pedido por WhatsApp.";
+        updateSendButton();
       }
 
       function setupButtons(){
@@ -2652,8 +2772,10 @@
           openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
         });
 
-        $("copyCbuBtn").addEventListener("click", function(){ copyOnly(COPY_CBU, "CBU"); });
-        $("copyAliasBtn").addEventListener("click", function(){ copyOnly(COPY_ALIAS, "alias"); });
+        $("copyCbuBtn1").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.mp.cbu, "CBU de Opción 1"); });
+        $("copyAliasBtn1").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.mp.alias, "alias de Opción 1"); });
+        $("copyCbuBtn2").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.lemon.cbu, "CBU de Opción 2"); });
+        $("copyAliasBtn2").addEventListener("click", function(){ copyOnly(PAYMENT_OPTIONS.lemon.alias, "alias de Opción 2"); });
 
         $("qtyMinus").addEventListener("click", function(){ setQty(state.qty - 1); });
         $("qtyPlus").addEventListener("click", function(){ setQty(state.qty + 1); });
