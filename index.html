@@ -1,0 +1,2744 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RECAMBIOS MK | PEDI TU CILINDRO DE RECAMBIO</title>
+
+  <meta name="description" content="Pedí tu cilindro de recambio. Elegí envío o retiro en local y confirmá tu pedido por WhatsApp." />
+  <meta property="og:title" content="RECAMBIOS MK | PEDI TU CILINDRO DE RECAMBIO" />
+  <meta property="og:description" content="Pedí tu cilindro de recambio. Envíos por zona o retiro en local." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://iili.io/qBAzxwB.jpg" />
+  <meta property="og:locale" content="es_AR" />
+
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --bg-soft:#eef3f8;
+      --surface:#ffffff;
+      --surface-soft:#f8fbff;
+      --surface-alt:#f1f5f9;
+      --text:#0f172a;
+      --muted:#4b5c72;
+      --line:#dbe3ee;
+      --brand:#22c55e;
+      --brand-deep:#16a34a;
+      --accent:#2563eb;
+      --danger:#ef4444;
+      --warning:#f59e0b;
+      --shadow:0 16px 50px rgba(15,23,42,.08);
+      --shadow-soft:0 10px 28px rgba(15,23,42,.05);
+      --radius:20px;
+      --radius-lg:28px;
+      --max:1160px;
+      --header-h:74px;
+      --wa-bottom:16px;
+      --armar-bottom:90px;
+    }
+
+    html[data-theme="dark"]{
+      --bg:#0b1017;
+      --bg-soft:#111827;
+      --surface:#101826;
+      --surface-soft:#121d2c;
+      --surface-alt:#0f1724;
+      --text:#eef4fb;
+      --muted:#d1dae7;
+      --line:#243245;
+      --brand:#22c55e;
+      --brand-deep:#16a34a;
+      --accent:#60a5fa;
+      --danger:#f87171;
+      --warning:#fbbf24;
+      --shadow:0 18px 56px rgba(0,0,0,.34);
+      --shadow-soft:0 12px 28px rgba(0,0,0,.22);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.06), transparent 28%),
+        radial-gradient(circle at top right, rgba(34,197,94,.05), transparent 24%),
+        var(--bg);
+      overflow-x:hidden;
+      transition:background .3s ease,color .3s ease;
+    }
+
+    body.modal-open{overflow:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    button,input,textarea{font:inherit}
+
+    .page{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1}
+    .shell{width:min(var(--max), 92vw);margin:0 auto}
+    .section{padding:38px 0}
+    @media (max-width:720px){.section{padding:28px 0}}
+
+    .block{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:12px;
+      padding:9px 13px;
+      border-radius:999px;
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
+      background:color-mix(in srgb, var(--brand), transparent 91%);
+      color:color-mix(in srgb, var(--text), var(--brand) 20%);
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.2px;
+      width:max-content;
+      max-width:100%;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--brand);
+      box-shadow:0 0 0 6px color-mix(in srgb, var(--brand), transparent 84%);
+      flex:0 0 auto;
+    }
+
+    .section-head{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(24px, 3.3vw, 36px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+      max-width:760px;
+      font-weight:800;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      outline:none;
+      text-decoration:none;
+      cursor:pointer;
+      user-select:none;
+      border-radius:16px;
+      padding:13px 16px;
+      font-size:15px;
+      font-weight:900;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition:transform .14s ease, opacity .14s ease, border-color .14s ease, background .14s ease;
+      min-height:50px;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{
+      background:linear-gradient(135deg, var(--brand), var(--brand-deep));
+      color:#072111;
+      box-shadow:0 14px 28px rgba(34,197,94,.24);
+    }
+    .btn.secondary{
+      background:var(--surface);
+      color:var(--text);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+    }
+    .btn.soft{
+      background:color-mix(in srgb, var(--accent), transparent 88%);
+      color:var(--text);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
+      box-shadow:var(--shadow-soft);
+    }
+    .btn.copy-pay{
+      background:linear-gradient(135deg, color-mix(in srgb, var(--accent), #fff 10%), var(--accent));
+      color:#fff;
+      border:1px solid color-mix(in srgb, var(--accent), #fff 30%);
+      box-shadow:0 16px 34px color-mix(in srgb, var(--accent), transparent 66%);
+      font-size:15px;
+      min-height:52px;
+      width:100%;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:90;
+      height:var(--header-h);
+      display:flex;
+      align-items:center;
+      background:color-mix(in srgb, var(--surface), transparent 10%);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      width:min(var(--max), 92vw);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:relative;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      text-decoration:none;
+      font-weight:900;
+    }
+
+    .brand-logo{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      flex:0 0 auto;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .brand-logo img{width:100%;height:100%;object-fit:cover}
+    .brand-text{display:flex;flex-direction:column;min-width:0}
+    .brand-text strong{font-size:14px;line-height:1.1;white-space:nowrap}
+    .brand-text span{font-size:13px;color:var(--muted);white-space:nowrap;font-weight:900}
+
+    .nav{display:flex;align-items:center;gap:6px}
+    .nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:14px;
+      font-weight:900;
+      color:var(--text);
+    }
+    .nav a:hover{background:var(--surface-alt)}
+
+    .header-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+
+    .theme-toggle,.burger{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+      flex:0 0 auto;
+    }
+
+    .theme-toggle svg,.burger svg{width:20px;height:20px}
+    .burger{display:none}
+
+    @media (max-width:900px){
+      .burger{display:inline-flex}
+      .nav{
+        position:absolute;
+        left:0;
+        right:0;
+        top:calc(var(--header-h) - 4px);
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:6px;
+        padding:12px;
+        background:var(--surface);
+        border:1px solid var(--line);
+        border-radius:20px;
+        box-shadow:var(--shadow);
+      }
+      .nav.open{display:flex}
+      .nav a{padding:12px 14px}
+    }
+
+    .hero{padding-top:24px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:22px;
+      align-items:start;
+    }
+
+    .hero-copy-card{
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    @media (max-width:720px){
+      .hero-copy-card{padding:20px;gap:18px}
+    }
+
+    .hero-top{display:flex;align-items:flex-start;gap:16px;min-width:0}
+    .hero-mark{
+      width:78px;
+      height:78px;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+      flex:0 0 auto;
+    }
+
+    .hero-mark img{width:100%;height:100%;object-fit:cover}
+    .hero-copy{min-width:0}
+    .hero-copy h1{
+      margin:0 0 12px;
+      font-size:clamp(31px, 5vw, 58px);
+      line-height:.98;
+      letter-spacing:-1px;
+      text-wrap:balance;
+    }
+
+    .hero-copy p{
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.76;
+      max-width:62ch;
+      font-weight:800;
+    }
+
+    .hero-note{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:15px 17px;
+      border-radius:18px;
+      background:color-mix(in srgb, var(--brand), transparent 91%);
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
+      font-size:14px;
+      font-weight:900;
+      line-height:1.55;
+      text-transform:uppercase;
+    }
+
+    .hero-note::before{
+      content:"";
+      width:10px;
+      height:10px;
+      margin-top:4px;
+      border-radius:999px;
+      background:var(--brand);
+      box-shadow:0 0 0 7px color-mix(in srgb, var(--brand), transparent 86%);
+      flex:0 0 auto;
+    }
+
+    .hero-price-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .price-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:54px;
+      padding:13px 17px;
+      border-radius:18px;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .price-pill strong{font-size:29px;line-height:1;letter-spacing:-.8px}
+    .price-pill span{font-size:14px;color:var(--muted);font-weight:900}
+
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+    @media (max-width:520px){
+      .hero-actions{flex-direction:column}
+      .hero-actions .btn{width:100%}
+    }
+
+    .hero-banner-card{
+      overflow:hidden;
+      position:relative;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-banner{
+      width:100%;
+      height:auto;
+      display:block;
+      background:#fff;
+    }
+
+    html[data-theme="dark"] .hero-banner{background:#0b1017}
+
+    .highlight-row{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:1100px){.highlight-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width:620px){.highlight-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+    .chip-card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      min-height:102px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:6px;
+    }
+
+    .chip-card strong{
+      font-size:13px;
+      letter-spacing:.24px;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+
+    .chip-card span{
+      font-size:17px;
+      font-weight:900;
+      line-height:1.3;
+    }
+
+    .product-card,.benefit-card,.zones-panel,.coverage-card,.search-card,.faq-card,.review-card{
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    @media (max-width:720px){
+      .product-card,.benefit-card,.zones-panel,.coverage-card,.search-card,.faq-card,.review-card{padding:16px}
+    }
+
+    .product-card h3{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+      text-wrap:balance;
+    }
+
+    .product-card p{margin:0;color:var(--muted);font-size:16px;line-height:1.72;font-weight:800}
+    .product-stack{display:grid;gap:14px}
+
+    .bullet-list{display:grid;gap:10px}
+    .bullet{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px 14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .bullet::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--brand);
+      box-shadow:0 0 0 7px color-mix(in srgb, var(--brand), transparent 86%);
+      margin-top:6px;
+      flex:0 0 auto;
+    }
+
+    .bullet strong{display:block;margin-bottom:4px;font-size:15px}
+    .bullet p{margin:0;font-size:14px;line-height:1.56}
+
+    .product-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+    @media (max-width:560px){
+      .product-actions{flex-direction:column}
+      .product-actions .btn{width:100%}
+    }
+
+    .zones-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:980px){.zones-grid{grid-template-columns:1fr}}
+
+    .zone-card{
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:20px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      min-height:100%;
+      display:grid;
+      gap:12px;
+      align-content:start;
+    }
+
+    .zone-card strong{display:block;margin-bottom:6px;font-size:18px}
+
+    .zone-card .zone-price{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:color-mix(in srgb, var(--accent), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:2px;
+      width:max-content;
+      max-width:100%;
+    }
+
+    .zone-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;font-weight:800}
+    .zone-thumb{
+      width:100%;
+      max-width:260px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+    }
+    .zone-thumb img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .benefits-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:980px){.benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:560px){.benefits-grid{grid-template-columns:1fr}}
+
+    .benefit{
+      display:grid;
+      grid-template-columns:48px 1fr;
+      gap:12px;
+      align-items:center;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .benefit img{width:48px;height:48px;object-fit:contain}
+    .benefit strong{display:block;margin-bottom:4px;font-size:15px}
+    .benefit p{margin:0;font-size:13.8px;line-height:1.48;color:var(--muted);font-weight:800}
+
+    .coverage-layout{
+      display:grid;
+      grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+      gap:22px;
+      align-items:start;
+    }
+
+    @media (max-width:980px){.coverage-layout{grid-template-columns:1fr}}
+
+    .coverage-image-wrap{
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+      margin-top:14px;
+    }
+
+    .coverage-image-wrap img{width:100%;height:auto;object-fit:contain}
+    .coverage-card p,.search-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.65;font-weight:800}
+    .search-card h3,.coverage-card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.2px}
+
+    .search-input{position:relative;margin-top:14px;margin-bottom:12px}
+    .search-input input{
+      width:100%;
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:14px;
+      padding:14px 48px 14px 13px;
+      font-size:15px;
+      outline:none;
+      transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .search-input input:focus{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 42%);
+      box-shadow:0 0 0 4px color-mix(in srgb, var(--accent), transparent 84%);
+    }
+
+    .search-icon{
+      position:absolute;
+      right:15px;
+      top:50%;
+      transform:translateY(-50%);
+      width:18px;
+      height:18px;
+      color:var(--muted);
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    .search-feedback{
+      min-height:22px;
+      font-size:14px;
+      line-height:1.45;
+      color:var(--muted);
+      margin-bottom:12px;
+      font-weight:900;
+    }
+
+    .results{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+      max-height:300px;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    @media (max-width:560px){.results{grid-template-columns:1fr}}
+
+    .results::-webkit-scrollbar{width:8px}
+    .results::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .zone-item{
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:14px;
+      padding:11px 12px;
+      font-size:14px;
+      font-weight:900;
+      line-height:1.4;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .faq-grid{display:grid;gap:12px}
+
+    details{
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:18px;
+      padding:14px 16px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    summary{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      cursor:pointer;
+      font-size:16px;
+      font-weight:900;
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    .chev{
+      width:18px;
+      height:18px;
+      flex:0 0 auto;
+      opacity:.8;
+      transition:transform .14s ease;
+    }
+
+    details[open] .chev{transform:rotate(180deg)}
+
+    .answer{margin-top:10px;color:var(--muted);font-size:15px;line-height:1.72;font-weight:800}
+
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:1100px){.reviews-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width:640px){.reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+    .review{
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:20px;
+      padding:14px;
+      box-shadow:var(--shadow-soft);
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:9px;
+      min-height:188px;
+    }
+
+    .review img{
+      width:68px;
+      height:68px;
+      border-radius:999px;
+      object-fit:cover;
+      border:1px solid var(--line);
+      box-shadow:0 10px 22px rgba(0,0,0,.10);
+    }
+
+    .stars{font-size:15px;font-weight:900;letter-spacing:.3px}
+    .review p{margin:0;font-size:13.8px;line-height:1.5;color:var(--muted);font-weight:800}
+    .reviews-actions{display:flex;justify-content:flex-start;margin-top:16px}
+    @media (max-width:520px){.reviews-actions .btn{width:100%}}
+
+    footer{
+      margin-top:18px;
+      border-top:1px solid var(--line);
+      background:color-mix(in srgb, var(--surface), transparent 0%);
+      position:relative;
+      z-index:2;
+    }
+
+    .footer-inner{
+      width:min(var(--max), 92vw);
+      margin:0 auto;
+      padding:18px 0 34px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .foot-text{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.55;
+      font-weight:900;
+    }
+
+    .foot-text a{
+      text-decoration:none;
+      border-bottom:1px dashed color-mix(in srgb, var(--muted), transparent 30%);
+    }
+
+    .foot-text .name{color:var(--accent);font-weight:900}
+
+    .float-wa,
+    .float-order{
+      position:fixed;
+      right:16px;
+      z-index:60;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:bottom .16s ease, transform .14s ease;
+    }
+
+    .float-wa{
+      bottom:var(--wa-bottom);
+      width:58px;
+      height:58px;
+      border-radius:999px;
+      background:#25D366;
+      color:#fff;
+      box-shadow:0 14px 30px rgba(37,211,102,.34), 0 10px 22px rgba(0,0,0,.16);
+    }
+
+    .float-wa:hover,
+    .float-order:hover{transform:translateY(-2px)}
+    .float-wa svg{width:30px;height:30px;display:block;fill:currentColor}
+
+    .float-order{
+      bottom:var(--armar-bottom);
+      min-height:54px;
+      padding:0 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg, #17c964, #0ea5e9);
+      color:#fff;
+      font-size:14px;
+      font-weight:900;
+      text-decoration:none;
+      box-shadow:
+        0 0 0 0 rgba(34,197,94,.58),
+        0 14px 30px rgba(14,165,233,.28),
+        0 10px 22px rgba(0,0,0,.16);
+      animation:pulseNeon 1.9s infinite;
+      border:1px solid rgba(255,255,255,.28);
+      white-space:nowrap;
+    }
+
+    @keyframes pulseNeon{
+      0%{
+        box-shadow:
+          0 0 0 0 rgba(34,197,94,.52),
+          0 14px 30px rgba(14,165,233,.28),
+          0 10px 22px rgba(0,0,0,.16);
+      }
+      70%{
+        box-shadow:
+          0 0 0 16px rgba(34,197,94,0),
+          0 14px 30px rgba(14,165,233,.34),
+          0 10px 22px rgba(0,0,0,.16);
+      }
+      100%{
+        box-shadow:
+          0 0 0 0 rgba(34,197,94,0),
+          0 14px 30px rgba(14,165,233,.28),
+          0 10px 22px rgba(0,0,0,.16);
+      }
+    }
+
+    @media (max-width:560px){
+      .float-wa{right:14px;width:54px;height:54px}
+      .float-wa svg{width:28px;height:28px}
+      .float-order{
+        right:14px;
+        left:14px;
+        bottom:80px;
+        width:auto;
+        padding:0 16px;
+      }
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:120;
+    }
+
+    .modal.open{display:flex}
+
+    .modal-overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(6,10,16,.68);
+      backdrop-filter:blur(6px);
+    }
+
+    .modal-dialog{
+      position:relative;
+      z-index:1;
+      width:min(940px, 100%);
+      max-height:min(92vh, 920px);
+      overflow:auto;
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:0 28px 80px rgba(0,0,0,.35);
+    }
+
+    .modal-dialog::-webkit-scrollbar{width:9px}
+    .modal-dialog::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .modal-head{
+      position:sticky;
+      top:0;
+      z-index:2;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 18px 16px;
+      background:color-mix(in srgb, var(--surface), transparent 4%);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      border-top-left-radius:28px;
+      border-top-right-radius:28px;
+    }
+
+    .modal-head h3{
+      margin:0 0 6px;
+      font-size:25px;
+      line-height:1.05;
+      letter-spacing:-.5px;
+    }
+
+    .modal-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.55;font-weight:800}
+
+    .modal-close{
+      width:44px;
+      height:44px;
+      flex:0 0 auto;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .modal-close svg{width:20px;height:20px}
+    .modal-body{padding:18px;display:grid;gap:16px}
+    .checkout-step{display:none;gap:16px}
+    .checkout-step.active{display:grid}
+
+    .checkout-card{
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .checkout-card h4{margin:0 0 12px;font-size:19px;letter-spacing:-.2px}
+
+    .checkout-product{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:14px;
+      align-items:start;
+    }
+
+    @media (max-width:520px){.checkout-product{grid-template-columns:1fr}}
+
+    .checkout-product .thumb{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .checkout-product .thumb img{width:100%;height:100%;object-fit:contain}
+    .checkout-product h5{margin:0 0 8px;font-size:18px;line-height:1.1;letter-spacing:-.2px}
+    .checkout-product p{margin:0;color:var(--muted);font-size:14px;line-height:1.58;font-weight:800}
+
+    .mode-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:640px){.mode-grid{grid-template-columns:1fr}}
+
+    .select-card,.zone-option,.choice-card,.location-card{
+      position:relative;
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+      transition:border-color .14s ease, transform .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .select-card:hover,.zone-option:hover,.choice-card:hover,.location-card:hover{transform:translateY(-1px)}
+    .select-card.active,.choice-card.active,.location-card.active{
+      border-color:color-mix(in srgb, var(--brand), var(--line) 40%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--brand), transparent 93%), transparent 55%), var(--surface);
+      box-shadow:0 16px 34px rgba(34,197,94,.12);
+    }
+
+    .zone-option.active{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 34%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 55%), var(--surface);
+    }
+
+    .select-card input,.zone-option input,.choice-card input,.location-card input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .select-card strong,.choice-card strong,.location-card strong{display:block;margin-bottom:6px;font-size:16px}
+    .select-card p,.choice-card p,.location-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:800}
+
+    .qty-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .qty-row strong{font-size:15px}
+
+    .qty-controls{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+    .qty-btn{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .qty-value{min-width:30px;text-align:center;font-size:20px;font-weight:900}
+
+    .zone-select-grid,.choice-grid,.location-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .location-grid{
+      max-height:320px;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    .location-grid::-webkit-scrollbar{width:8px}
+    .location-grid::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .zone-option-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .zone-option-top strong{font-size:16px}
+
+    .zone-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background:color-mix(in srgb, var(--accent), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
+      font-size:12px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .zone-option p{margin:0;color:var(--muted);font-size:14px;line-height:1.58;font-weight:800}
+
+    .summary-note{
+      padding:13px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--brand), transparent 92%);
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
+      color:var(--text);
+      font-size:13.5px;
+      line-height:1.56;
+      font-weight:900;
+    }
+
+    .warning-note{
+      padding:13px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--warning), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--warning), var(--line) 70%);
+      color:var(--text);
+      font-size:13.5px;
+      line-height:1.58;
+      font-weight:900;
+    }
+
+    .danger-note{
+      padding:13px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--danger), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--danger), var(--line) 68%);
+      color:var(--text);
+      font-size:13.5px;
+      line-height:1.58;
+      font-weight:900;
+      display:none;
+    }
+
+    .danger-note.show{display:block}
+
+    .help{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:18px;
+      height:18px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      background:color-mix(in srgb, var(--accent), transparent 86%);
+      color:color-mix(in srgb, var(--text), var(--accent) 18%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 68%);
+      flex:0 0 auto;
+      cursor:help;
+    }
+
+    .label-row{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      flex-wrap:wrap;
+    }
+
+    .helper-text{
+      margin-top:6px;
+      font-size:13px;
+      line-height:1.48;
+      color:var(--muted);
+      font-weight:900;
+    }
+
+    .modal-summary{display:grid;gap:10px}
+    .summary-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .summary-row span:first-child{color:var(--muted);font-weight:900}
+    .summary-row span:last-child{text-align:right;font-weight:900}
+    .summary-row.total{
+      padding-top:10px;
+      border-top:1px solid var(--line);
+      font-size:16px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    @media (max-width:640px){.form-grid{grid-template-columns:1fr}}
+
+    label{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+      font-size:13px;
+      font-weight:900;
+      color:var(--text);
+    }
+
+    input,textarea{
+      width:100%;
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:14px;
+      padding:14px 13px;
+      font-size:15px;
+      outline:none;
+      transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    input:focus,textarea:focus{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 42%);
+      box-shadow:0 0 0 4px color-mix(in srgb, var(--accent), transparent 84%);
+    }
+
+    textarea{min-height:108px;resize:vertical}
+    .full{grid-column:1 / -1}
+
+    .payment-box{
+      margin-top:14px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 52%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 60%), var(--surface);
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:10px;
+    }
+
+    .payment-box strong{
+      font-size:16px;
+      line-height:1.3;
+    }
+
+    .payment-box .pay-line{
+      font-size:14px;
+      line-height:1.55;
+      color:var(--text);
+      font-weight:900;
+      word-break:break-word;
+    }
+
+    .payment-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    @media (max-width:560px){
+      .payment-actions{grid-template-columns:1fr}
+    }
+
+    .copy-feedback{
+      min-height:16px;
+      font-size:13px;
+      color:var(--brand-deep);
+      font-weight:900;
+    }
+
+    html[data-theme="dark"] .copy-feedback{
+      color:#6ee7b7;
+    }
+
+    .local-info-card{
+      background:linear-gradient(180deg, color-mix(in srgb, var(--warning), transparent 92%), transparent 60%), var(--surface);
+      border:1px solid color-mix(in srgb, var(--warning), var(--line) 68%);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:12px;
+    }
+
+    .local-info-card h4{
+      margin:0;
+      font-size:22px;
+      line-height:1.1;
+    }
+
+    .local-info-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      font-weight:800;
+    }
+
+    .local-bullets{
+      display:grid;
+      gap:10px;
+    }
+
+    .local-bullet{
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:16px;
+      padding:13px 14px;
+      font-size:14px;
+      line-height:1.55;
+      font-weight:900;
+    }
+
+    .error{
+      font-size:13px;
+      font-weight:900;
+      color:var(--danger);
+      min-height:16px;
+    }
+
+    .hidden{display:none !important}
+
+    .modal-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding-top:2px;
+    }
+
+    @media (max-width:560px){
+      .modal-actions{
+        flex-direction:column-reverse;
+        align-items:stretch;
+      }
+      .modal-actions .btn{width:100%}
+    }
+
+    .step-badges{display:flex;gap:8px;flex-wrap:wrap}
+    .step-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:38px;
+      height:38px;
+      padding:0 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      font-size:12px;
+      font-weight:900;
+      color:var(--muted);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .step-badge.active{
+      background:color-mix(in srgb, var(--brand), transparent 88%);
+      border-color:color-mix(in srgb, var(--brand), var(--line) 56%);
+      color:color-mix(in srgb, var(--text), var(--brand) 16%);
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-logo">
+          <img src="https://iili.io/qBA6NGj.jpg" alt="RECAMBIOS MK">
+        </span>
+        <span class="brand-text">
+          <strong>RECAMBIOS MK</strong>
+          <span>Pedí tu cilindro de recambio</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="siteNav">
+        <a href="#producto">Producto</a>
+        <a href="#zonas">Zonas</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#faq">FAQ</a>
+        <a href="#reseñas">Reseñas</a>
+        <a href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+
+      <div class="header-tools">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v2.2M12 18.8V21M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M3 12h2.2M18.8 12H21M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56M12 16.2a4.2 4.2 0 100-8.4 4.2 4.2 0 000 8.4z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <main>
+      <div class="shell">
+        <section class="hero section" id="inicio">
+          <div class="hero-grid">
+            <div class="block hero-copy-card">
+              <div class="hero-top">
+                <div class="hero-mark" aria-hidden="true">
+                  <img src="https://iili.io/qBA6NGj.jpg" alt="Logo Recambios MK">
+                </div>
+
+                <div class="hero-copy">
+                  <span class="eyebrow">Pedido rápido para envío o retiro</span>
+                  <h1>PEDI TU CILINDRO DE RECAMBIO</h1>
+                  <p>Elegí la modalidad, completá tus datos y dejá el pedido listo para confirmar por WhatsApp de forma más rápida y ordenada.</p>
+                </div>
+              </div>
+
+              <div class="hero-note">CILINDRO DE RECAMBIO • STOCK PERMANENTE • SI RETIRÁS EN LOCAL, LA WEB SOLO INFORMA Y NO COORDINA EL RETIRO</div>
+
+              <div class="hero-price-row">
+                <div class="price-pill">
+                  <strong>$12.000</strong>
+                  <span>pago en local</span>
+                </div>
+              </div>
+
+              <div class="hero-actions">
+                <button class="btn primary" type="button" id="heroBuyBtn">Comprar ahora</button>
+                <a class="btn secondary" href="#zonas">Ver zonas</a>
+                <a class="btn secondary" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver Instagram</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-label="Banner principal">
+          <div class="hero-banner-card">
+            <img class="hero-banner" src="https://iili.io/qBAzxwB.jpg" alt="Banner Recambios MK">
+          </div>
+        </section>
+
+        <section class="section" aria-label="Datos operativos destacados">
+          <div class="highlight-row">
+            <article class="chip-card">
+              <strong>Local</strong>
+              <span>$12.000 pago en local</span>
+            </article>
+            <article class="chip-card">
+              <strong>Pedidos</strong>
+              <span>De 8 a 20 hs</span>
+            </article>
+            <article class="chip-card">
+              <strong>Entregas</strong>
+              <span>24 a 48 hs</span>
+            </article>
+            <article class="chip-card">
+              <strong>Logística</strong>
+              <span>17 a 22 hs</span>
+            </article>
+            <article class="chip-card">
+              <strong>Cobertura</strong>
+              <span>CABA y GBA</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="producto">
+          <div class="section-head">
+            <span class="eyebrow">Producto</span>
+            <h2>Un solo producto, compra más clara</h2>
+            <p>La web toma el pedido con todos los datos necesarios para que la confirmación salga lista por WhatsApp, según envío o retiro en local.</p>
+          </div>
+
+          <div class="product-card">
+            <div class="product-stack">
+              <div>
+                <span class="eyebrow">Un solo producto</span>
+                <h3>Cilindro de recambio</h3>
+                <p>Podés pedir con envío por zona o elegir retiro en local. El carrito calcula el total según la modalidad y la cantidad que selecciones.</p>
+              </div>
+
+              <div class="bullet-list">
+                <div class="bullet">
+                  <div>
+                    <strong>Envío por zona</strong>
+                    <p>Si elegís envío, primero tenés que seleccionar la zona para calcular el valor final antes de avanzar.</p>
+                  </div>
+                </div>
+
+                <div class="bullet">
+                  <div>
+                    <strong>Solo recambio</strong>
+                    <p>Si no tenés cilindro vacío, la web no permite continuar con la compra.</p>
+                  </div>
+                </div>
+
+                <div class="bullet">
+                  <div>
+                    <strong>Pedido más claro</strong>
+                    <p>La compra sale armada con nombre, dirección, piso/depto, localidad, cantidad, color del cilindro y teléfono en ese orden.</p>
+                  </div>
+                </div>
+
+                <div class="bullet">
+                  <div>
+                    <strong>Compra simple, rápida y clara</strong>
+                    <p>Recargamos tu cilindro original Soda Stream original con 450 grs de CO2 nacional certificado ANMAT.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn primary" type="button" id="productBuyBtn">Comprar con carrito</button>
+                <button class="btn soft" type="button" id="directWspBtn">Consultar por WhatsApp</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="zonas">
+          <div class="section-head">
+            <span class="eyebrow">Zonas de envío</span>
+            <h2>Elegí la zona correcta para calcular el envío</h2>
+            <p>Si comprás con envío, el carrito te va a pedir seleccionar obligatoriamente una de estas zonas antes de continuar. Hasta 6 cilindros se cobra un envío; si pedís más de 6, se suma otro envío.</p>
+          </div>
+
+          <div class="zones-panel">
+            <div class="zones-grid">
+              <article class="zone-card">
+                <div>
+                  <strong>Zona 1</strong>
+                  <span class="zone-price">Envío $5.000</span>
+                </div>
+                <div class="zone-thumb">
+                  <img src="https://iili.io/qBARJ1t.jpg" alt="Zona 1">
+                </div>
+                <p>CABA, MORON, RAMOS MEJIA, HAEDO, LOMAS DEL MIRADOR, SAN JUSTO, LA TABLADA, VILLA MADERO, ITUZAINGO, HURLINGHAM, 3 DE FEBRERO.</p>
+              </article>
+
+              <article class="zone-card">
+                <div>
+                  <strong>Zona 2</strong>
+                  <span class="zone-price">Envío $6.000</span>
+                </div>
+                <div class="zone-thumb">
+                  <img src="https://iili.io/qBARPj4.jpg" alt="Zona 2">
+                </div>
+                <p>VICENTE LOPEZ, SAN MARTIN, SAN ISIDRO, SAN FERNANDO, OLIVOS, MALVINAS ARGENTINAS, SAN MIGUEL, JOSE C. PAZ, MORENO, MERLO, CIUDAD EVITA, VILLA CELINA, ALDO BONZI, ISIDRO CASANOVA, LAFERRERE, RAFAEL CASTILLO, GONZALEZ CATAN, BIRREY DEL PINO, AVELLANEDA, LANUS, LOMAS DE ZAMORA, QUILMES, BERAZATEGUI, FLORENCIO VARELA, ALMIRANTE BROWN, ESTEBAN ECHEVERRIA, EZEIZA.</p>
+              </article>
+
+              <article class="zone-card">
+                <div>
+                  <strong>Zona 3</strong>
+                  <span class="zone-price">Envío $9.000</span>
+                </div>
+                <div class="zone-thumb">
+                  <img src="https://iili.io/qBA7c0P.png" alt="Zona 3">
+                </div>
+                <p>ZARATE, CAMPANA, ESCOBAR, VILLA ROSA, PILAR, LUJAN, MARCOS PAZ, GRAL. RODRIGUEZ, DERQUI, DEL VISO, GARIN, TIGRE, INGENIERO MASCHWITZ, CAÑUELAS, GUERNICA, SAN VICENTE, LA PLATA, ENSENADA, BERISSO.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="beneficios">
+          <div class="section-head">
+            <span class="eyebrow">Beneficios</span>
+            <h2>Compra simple, rápida y clara</h2>
+            <p>Una forma más ordenada de resolver el pedido y dejarlo listo para confirmar.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefits-grid">
+              <div class="benefit">
+                <img src="https://iili.io/qquNgGp.png" alt="Ecológico">
+                <div>
+                  <strong>Ecológico</strong>
+                  <p>Menos descartables y una alternativa más práctica para el consumo habitual.</p>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <img src="https://iili.io/qquNUnR.png" alt="Práctico">
+                <div>
+                  <strong>Práctico</strong>
+                  <p>El pedido sale más prolijo y listo para confirmar con toda la información importante.</p>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <img src="https://iili.io/qquN8Zv.png" alt="Conveniente">
+                <div>
+                  <strong>Conveniente</strong>
+                  <p>Podés elegir envío o retiro en local y ver el valor final antes de avanzar.</p>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <img src="https://iili.io/qquNvwJ.png" alt="Lista para usar">
+                <div>
+                  <strong>Lista para usar</strong>
+                  <p>Stock permanente y una gestión más directa para resolver el pedido.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="cobertura">
+          <div class="section-head">
+            <span class="eyebrow">Cobertura</span>
+            <h2>Buscá tu localidad o barrio</h2>
+            <p>El buscador contempla localidades por zona y también barrios de CABA como referencia dentro de Zona 1.</p>
+          </div>
+
+          <div class="coverage-layout">
+            <div class="coverage-card">
+              <h3>Mapa general de cobertura</h3>
+              <p>Referencia visual de la zona de entregas en CABA y GBA.</p>
+
+              <div class="coverage-image-wrap">
+                <img src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de localidades de entrega">
+              </div>
+            </div>
+
+            <div class="search-card">
+              <h3>Localidades y barrios</h3>
+              <p>Podés buscar por localidad, partido o barrio de CABA. Si no aparece, consultanos antes de confirmar el pedido.</p>
+
+              <div class="search-input">
+                <label class="sr-only" for="zoneSearch">Buscar localidad o barrio</label>
+                <input id="zoneSearch" type="text" placeholder="Ej: Moron, San Miguel, Pilar...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M11 5a6 6 0 104.24 10.24l3.76 3.76 1.41-1.41-3.76-3.76A6 6 0 0011 5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+
+              <div class="search-feedback" id="zoneFeedback">Escribí una localidad o barrio para ver los resultados.</div>
+              <div class="results" id="zoneResults" aria-label="Resultados de localidades"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="faq">
+          <div class="section-head">
+            <span class="eyebrow">Preguntas frecuentes</span>
+            <h2>Información útil antes de confirmar</h2>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-grid">
+              <details>
+                <summary>
+                  <span>¿Cuándo entregan?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  • Pedidos de 8 a 20 hs.<br>
+                  • Las entregas se realizan dentro de 24 a 48 hs.<br>
+                  • La logística entrega de 17 a 22 hs.<br><br>
+                  La mayoría de las veces el pedido llega en el día o al siguiente. Puede haber demoras si la logística tiene algún inconveniente. Si no te encuentran, se reprograma hasta concretar la entrega.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Cómo se paga?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  • El pago es por transferencia adelantada para envíos.<br>
+                  • Los datos de alias y CBU aparecen solo al completar la sección de envío.<br>
+                  • En local, el pago es directo y vale $12.000.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Qué vende Recambios MK?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  • Vendemos únicamente recambio.<br>
+                  • El repartidor entrega los nuevos y retira los envases vacíos.<br>
+                  • Si no tenés envase vacío, no se puede continuar con el pedido desde la web.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Cuánto cuesta?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  • En el local, el recambio cuesta $12.000 y hay stock permanente.<br>
+                  • Si elegís envío, el total depende de la zona y de la cantidad.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Se puede retirar en el local?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  Sí.<br>
+                  • Emilio Castro 624, Haedo.<br>
+                  • Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
+                  • Pago en local: $12.000.<br>
+                  • Stock permanente.<br>
+                  • Aclaración: la web no coordina los retiros del local, solo informa.
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="reseñas">
+          <div class="section-head">
+            <span class="eyebrow">Reseñas</span>
+            <h2>Comentarios de clientes</h2>
+            <p>Experiencias compartidas por quienes ya hicieron su pedido.</p>
+          </div>
+
+          <div class="review-card">
+            <div class="reviews-grid" aria-label="Reseñas de clientes">
+              <article class="review">
+                <img src="https://iili.io/qq3SlA7.jpg" alt="Reseña 1">
+                <div class="stars">★★★★★</div>
+                <p>Rápido y coordinado. Muy buena atención.</p>
+              </article>
+
+              <article class="review">
+                <img src="https://iili.io/qq3joUF.jpg" alt="Reseña 2">
+                <div class="stars">★★★★★</div>
+                <p>Entrega dentro del horario y todo claro.</p>
+              </article>
+
+              <article class="review">
+                <img src="https://iili.io/qq3jqiB.jpg" alt="Reseña 3">
+                <div class="stars">★★★★★</div>
+                <p>Proceso simple por WhatsApp. Recomendable.</p>
+              </article>
+
+              <article class="review">
+                <img src="https://iili.io/qq3jCKP.jpg" alt="Reseña 4">
+                <div class="stars">★★★★★</div>
+                <p>Buena soda y coordinación rápida del envío.</p>
+              </article>
+
+              <article class="review">
+                <img src="https://iili.io/qq3jTOJ.jpg" alt="Reseña 5">
+                <div class="stars">★★★★★</div>
+                <p>Atención excelente y cumplen con el pedido.</p>
+              </article>
+            </div>
+
+            <div class="reviews-actions">
+              <a class="btn secondary" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver reseñas en Instagram</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer id="footer">
+      <div class="footer-inner">
+        <div class="foot-text">
+          © <span id="year"></span> RECAMBIOS MK • Instagram:
+          <a href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">@recambio.soda</a>
+        </div>
+
+        <div class="foot-text">
+          Creado y diseñado por
+          <a href="https://ciborg347oficial.onrender.com" target="_blank" rel="noopener">
+            <span class="name">Ciborg 347</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <a class="float-order" href="#" id="armarPedidoBtn" aria-label="Abrir carrito">ARMA TU PEDIDO</a>
+
+    <a class="float-wa" href="https://wa.me/5491162843339" id="waFloat" aria-label="WhatsApp">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M19.11 17.28c-.28-.14-1.64-.81-1.9-.9-.25-.09-.43-.14-.62.14-.18.28-.71.9-.87 1.09-.16.18-.31.21-.59.07-.28-.14-1.16-.43-2.21-1.38-.82-.73-1.37-1.64-1.53-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.41-.46.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.46.07-.71.34-.25.28-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.14.18 1.92 2.93 4.65 4.1.65.28 1.16.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32zM16.22 4.36C9.78 4.36 4.56 9.56 4.56 15.98c0 2.05.54 4.05 1.56 5.81L4.5 27.64l6.01-1.58a11.7 11.7 0 0 0 5.71 1.46h.01c6.43 0 11.66-5.21 11.66-11.64 0-3.12-1.22-6.05-3.43-8.25a11.57 11.57 0 0 0-8.24-3.27zm0 21.19h-.01a9.75 9.75 0 0 1-4.98-1.36l-.36-.21-3.56.93.95-3.47-.23-.36a9.66 9.66 0 0 1-1.49-5.1c0-5.35 4.35-9.69 9.7-9.69 2.59 0 5.02 1.01 6.84 2.83a9.59 9.59 0 0 1 2.84 6.84c0 5.35-4.36 9.69-9.7 9.69z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="modal" id="cartModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="modal-overlay" id="cartOverlay"></div>
+
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <div>
+          <div class="step-badges" aria-hidden="true">
+            <span class="step-badge active" id="badgeStep1">Paso 1</span>
+            <span class="step-badge" id="badgeStep2">Paso 2</span>
+            <span class="step-badge" id="badgeStep3">Paso 3</span>
+            <span class="step-badge" id="badgeStep4">Paso 4</span>
+            <span class="step-badge" id="badgeStep5">Paso 5</span>
+          </div>
+          <h3 id="cartTitle">Carrito de compra</h3>
+          <p id="cartSubtitle">Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.</p>
+        </div>
+
+        <button class="modal-close" id="cartClose" type="button" aria-label="Cerrar carrito">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <section class="checkout-step active" id="step1">
+          <div class="checkout-card">
+            <h4>Modalidad y cantidad</h4>
+
+            <div class="checkout-product">
+              <div class="thumb">
+                <img src="https://iili.io/qBAzxwB.jpg" alt="Cilindro de recambio">
+              </div>
+
+              <div>
+                <h5>Cilindro de recambio</h5>
+                <p>Elegí envío o retiro en local. Si seleccionás envío, el sistema te va guiando por zona, localidad, datos y pago. Si elegís retiro, la web solo informa el local y no coordina el retiro.</p>
+              </div>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="mode-grid">
+              <label class="select-card active" data-mode-card="envio">
+                <input type="radio" name="modo" value="envio" checked>
+                <strong>Envío</strong>
+                <p>El total se calcula según cantidad y zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío.</p>
+              </label>
+
+              <label class="select-card" data-mode-card="retiro">
+                <input type="radio" name="modo" value="retiro">
+                <strong>Retiro en local</strong>
+                <p>Pago en el local $12.000. Stock permanente. La web no coordina retiros del local, solo informa.</p>
+              </label>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="qty-row">
+              <div>
+                <strong>Cantidad</strong>
+                <div class="helper-text">Podés sumar unidades y el total se recalcula solo. A partir de 7 se suma otro envío.</div>
+              </div>
+
+              <div class="qty-controls">
+                <button class="qty-btn" id="qtyMinus" type="button" aria-label="Restar cantidad">−</button>
+                <div class="qty-value" id="qtyValue">1</div>
+                <button class="qty-btn" id="qtyPlus" type="button" aria-label="Sumar cantidad">+</button>
+              </div>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="summary-note" id="step1Note">
+              Si elegís envío, en el próximo paso vas a seleccionar la zona de entrega.
+            </div>
+
+            <div class="error" id="step1Error"></div>
+
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnCloseStep1">Seguir viendo la web</button>
+              <button class="btn primary" type="button" id="btnStep1Next">Continuar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-step" id="step2">
+          <div class="checkout-card">
+            <h4 id="step2Title">Elegí tu zona de envío</h4>
+
+            <div id="zonesWrapStep2">
+              <div class="zone-select-grid">
+                <label class="zone-option" data-zone-card="1">
+                  <input type="radio" name="zonaEnvio" value="1">
+                  <div class="zone-option-top">
+                    <strong>Zona 1</strong>
+                    <span class="zone-badge">Envío $5.000</span>
+                  </div>
+                  <p>CABA, MORON, RAMOS MEJIA, HAEDO, LOMAS DEL MIRADOR, SAN JUSTO, LA TABLADA, VILLA MADERO, ITUZAINGO, HURLINGHAM, 3 DE FEBRERO.</p>
+                </label>
+
+                <label class="zone-option" data-zone-card="2">
+                  <input type="radio" name="zonaEnvio" value="2">
+                  <div class="zone-option-top">
+                    <strong>Zona 2</strong>
+                    <span class="zone-badge">Envío $6.000</span>
+                  </div>
+                  <p>VICENTE LOPEZ, SAN MARTIN, SAN ISIDRO, SAN FERNANDO, OLIVOS, MALVINAS ARGENTINAS, SAN MIGUEL, JOSE C. PAZ, MORENO, MERLO, CIUDAD EVITA, VILLA CELINA, ALDO BONZI, ISIDRO CASANOVA, LAFERRERE, RAFAEL CASTILLO, GONZALEZ CATAN, BIRREY DEL PINO, AVELLANEDA, LANUS, LOMAS DE ZAMORA, QUILMES, BERAZATEGUI, FLORENCIO VARELA, ALMIRANTE BROWN, ESTEBAN ECHEVERRIA, EZEIZA.</p>
+                </label>
+
+                <label class="zone-option" data-zone-card="3">
+                  <input type="radio" name="zonaEnvio" value="3">
+                  <div class="zone-option-top">
+                    <strong>Zona 3</strong>
+                    <span class="zone-badge">Envío $9.000</span>
+                  </div>
+                  <p>ZARATE, CAMPANA, ESCOBAR, VILLA ROSA, PILAR, LUJAN, MARCOS PAZ, GRAL. RODRIGUEZ, DERQUI, DEL VISO, GARIN, TIGRE, INGENIERO MASCHWITZ, CAÑUELAS, GUERNICA, SAN VICENTE, LA PLATA, ENSENADA, BERISSO.</p>
+                </label>
+              </div>
+            </div>
+
+            <div id="pickupStep2Info" class="hidden">
+              <div class="local-info-card">
+                <h4>Retirá directamente en el local</h4>
+                <p>Si elegiste retiro en local, no hace falta completar datos de envío ni mandar mensaje por WhatsApp.</p>
+
+                <div class="local-bullets">
+                  <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
+                  <div class="local-bullet">Días de atención: lunes a sábado</div>
+                  <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
+                  <div class="local-bullet">Pago en local: $12.000</div>
+                  <div class="local-bullet">Stock permanente</div>
+                  <div class="local-bullet">La web no coordina retiros del local, solo informa.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="error" id="step2Error"></div>
+
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep2Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep2Next">Continuar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-step" id="step3">
+          <div class="checkout-card">
+            <h4 id="step3Title">Elegí tu localidad</h4>
+
+            <div id="locationStepWrap">
+              <div class="helper-text" id="locationStepHelp">Primero elegí una zona en el paso anterior.</div>
+              <div class="location-grid" id="locationStepGrid"></div>
+            </div>
+
+            <div id="pickupStep3Info" class="hidden">
+              <div class="local-info-card">
+                <h4>Información del local</h4>
+                <p>Podés acercarte directamente al local dentro de los días y horarios de atención.</p>
+
+                <div class="local-bullets">
+                  <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
+                  <div class="local-bullet">Días de atención: lunes a sábado</div>
+                  <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
+                  <div class="local-bullet">Pago en local: $12.000</div>
+                  <div class="local-bullet">Stock permanente</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="error" id="step3Error"></div>
+
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep3Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep3Next">Continuar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-step" id="step4">
+          <div class="checkout-card">
+            <h4>Confirmá tu cilindro</h4>
+
+            <div class="choice-grid">
+              <label class="choice-card" data-cylinder-card="si">
+                <input type="radio" name="hasCylinder" value="SI">
+                <strong>Sí, tengo cilindro vacío</strong>
+                <p>Podés continuar con el pedido y elegir el color del cilindro.</p>
+              </label>
+
+              <label class="choice-card" data-cylinder-card="no">
+                <input type="radio" name="hasCylinder" value="NO">
+                <strong>No tengo cilindro vacío</strong>
+                <p>La web no permite avanzar porque RECAMBIOS MK vende solo recambio.</p>
+              </label>
+            </div>
+
+            <div class="danger-note" id="noCylinderNote">
+              No se puede continuar sin cilindro vacío. RECAMBIOS MK vende únicamente recambio.
+            </div>
+
+            <div id="colorWrap" class="hidden" style="margin-top:14px;">
+              <h4 style="margin-top:0">Color del cilindro</h4>
+              <div class="choice-grid">
+                <label class="choice-card" data-color-card="Celeste">
+                  <input type="radio" name="cylinderColor" value="Celeste">
+                  <strong>Celeste</strong>
+                  <p>Seleccioná esta opción si tu cilindro es celeste.</p>
+                </label>
+
+                <label class="choice-card" data-color-card="Rosa">
+                  <input type="radio" name="cylinderColor" value="Rosa">
+                  <strong>Rosa</strong>
+                  <p>Seleccioná esta opción si tu cilindro es rosa.</p>
+                </label>
+              </div>
+            </div>
+
+            <div class="error" id="step4Error"></div>
+
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep4Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep4Next">Continuar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-step" id="step5">
+          <div class="checkout-card">
+            <div id="shippingContent">
+              <h4>Datos finales</h4>
+
+              <div class="form-grid">
+                <label>
+                  <span class="label-row">Nombre y apellido <span class="help" title="Dato obligatorio para registrar el pedido.">i</span></span>
+                  <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name">
+                </label>
+
+                <label>
+                  <span class="label-row">Teléfono <span class="help" title="Se usa para completar el pedido y dejar el contacto registrado.">i</span></span>
+                  <input id="fTelefono" type="tel" placeholder="Ej: 11 2345 6789" inputmode="tel" autocomplete="tel">
+                </label>
+
+                <label id="locationField">
+                  <span class="label-row">Localidad seleccionada</span>
+                  <input id="fLocationText" type="text" readonly>
+                </label>
+
+                <label id="streetField">
+                  <span class="label-row">Dirección <span class="help" title="Dato obligatorio para entregas a domicilio.">i</span></span>
+                  <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
+                </label>
+
+                <label id="floorField">
+                  <span class="label-row">Piso / Depto <span class="help" title="Ejemplo: Piso 2 Depto B.">i</span></span>
+                  <input id="fPisoDepto" type="text" placeholder="Ej: Piso 2 Depto B">
+                </label>
+
+                <label class="full">
+                  <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, entre calles.">i</span></span>
+                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Entre calles">
+                </label>
+
+                <label class="full">
+                  <span class="label-row">Nota (opcional) <span class="help" title="Podés dejar una aclaración extra para el pedido.">i</span></span>
+                  <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy, mejor."></textarea>
+                </label>
+              </div>
+
+              <div id="paymentBoxWrap">
+                <div class="payment-box">
+                  <strong>Datos para transferencia</strong>
+                  <div class="pay-line"><b>CBU:</b> <span id="cbuValue">0000003100037411221896</span></div>
+                  <div class="pay-line"><b>Alias:</b> <span id="aliasValue">muralo3.mp</span></div>
+                  <div class="pay-line"><b>Titular:</b> Mariano Quercia</div>
+
+                  <div class="payment-actions">
+                    <button class="btn copy-pay" type="button" id="copyCbuBtn">Copiar CBU</button>
+                    <button class="btn copy-pay" type="button" id="copyAliasBtn">Copiar alias</button>
+                  </div>
+
+                  <div class="copy-feedback" id="copyFeedback"></div>
+                </div>
+              </div>
+
+              <div style="height:14px"></div>
+
+              <aside class="checkout-card" style="padding:14px;">
+                <h4 style="margin-bottom:10px;">Resumen final</h4>
+                <div class="modal-summary">
+                  <div class="summary-row">
+                    <span>Modalidad</span>
+                    <span id="summaryMode2">Envío</span>
+                  </div>
+
+                  <div class="summary-row">
+                    <span>Precio por unidad</span>
+                    <span id="summaryUnit2">$11.000</span>
+                  </div>
+
+                  <div class="summary-row">
+                    <span>Cantidad</span>
+                    <span id="summaryQty2">1</span>
+                  </div>
+
+                  <div class="summary-row">
+                    <span>Zona / retiro</span>
+                    <span id="summaryZone2">Zona 1</span>
+                  </div>
+
+                  <div class="summary-row">
+                    <span>Localidad</span>
+                    <span id="summaryLocation2">Sin definir</span>
+                  </div>
+
+                  <div class="summary-row">
+                    <span>Cilindro</span>
+                    <span id="summaryCylinder2">Sí</span>
+                  </div>
+
+                  <div class="summary-row">
+                    <span>Color</span>
+                    <span id="summaryColor2">Celeste</span>
+                  </div>
+
+                  <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="summaryTotal2">$16.000</span>
+                  </div>
+                </div>
+              </aside>
+
+              <div class="summary-note" id="step5SummaryNote" style="margin-top:14px;">
+                Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
+              </div>
+
+              <div class="error" id="formError"></div>
+
+              <div class="modal-actions">
+                <button class="btn secondary" type="button" id="btnStep5Back">Volver</button>
+                <button class="btn primary" type="button" id="btnSendOrder">Enviar pedido por WhatsApp</button>
+              </div>
+            </div>
+
+            <div id="pickupFinalContent" class="hidden">
+              <div class="local-info-card">
+                <h4>Retirá directamente en el local</h4>
+                <p>Como elegiste retiro en local, no tenés que completar datos de envío ni mandar mensaje. Solo acercate dentro de los días y horarios de atención.</p>
+
+                <div class="local-bullets">
+                  <div class="local-bullet">Dirección: Emilio Castro 624, Haedo</div>
+                  <div class="local-bullet">Días de atención: lunes a sábado</div>
+                  <div class="local-bullet">Horarios: 9:30 a 13 hs y de 15:30 a 19 hs</div>
+                  <div class="local-bullet">Pago en local: $12.000</div>
+                  <div class="local-bullet">Stock permanente</div>
+                  <div class="local-bullet">La web no coordina retiros del local, solo informa.</div>
+                </div>
+              </div>
+
+              <div class="modal-actions" style="margin-top:14px;">
+                <button class="btn secondary" type="button" id="btnPickupBack">Volver</button>
+                <button class="btn primary" type="button" id="btnPickupClose">Entendido</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const WA_NUMBER = "5491162843339";
+      const PRICE_RETIRO = 12000;
+      const PRICE_ENVIO_BASE = 11000;
+      const COPY_CBU = "0000003100037411221896";
+      const COPY_ALIAS = "muralo3.mp";
+
+      const ZONES = {
+        1: {
+          name: "Zona 1",
+          shipping: 5000,
+          options: [
+            "CABA","MORON","RAMOS MEJIA","HAEDO","LOMAS DEL MIRADOR","SAN JUSTO","LA TABLADA","VILLA MADERO","ITUZAINGO","HURLINGHAM","3 DE FEBRERO"
+          ]
+        },
+        2: {
+          name: "Zona 2",
+          shipping: 6000,
+          options: [
+            "VICENTE LOPEZ","SAN MARTIN","SAN ISIDRO","SAN FERNANDO","OLIVOS","MALVINAS ARGENTINAS","SAN MIGUEL","JOSE C. PAZ","MORENO","MERLO","CIUDAD EVITA","VILLA CELINA","ALDO BONZI","ISIDRO CASANOVA","LAFERRERE","RAFAEL CASTILLO","GONZALEZ CATAN","BIRREY DEL PINO","AVELLANEDA","LANUS","LOMAS DE ZAMORA","QUILMES","BERAZATEGUI","FLORENCIO VARELA","ALMIRANTE BROWN","ESTEBAN ECHEVERRIA","EZEIZA"
+          ]
+        },
+        3: {
+          name: "Zona 3",
+          shipping: 9000,
+          options: [
+            "ZARATE","CAMPANA","ESCOBAR","VILLA ROSA","PILAR","LUJAN","MARCOS PAZ","GRAL. RODRIGUEZ","DERQUI","DEL VISO","GARIN","TIGRE","INGENIERO MASCHWITZ","CAÑUELAS","GUERNICA","SAN VICENTE","LA PLATA","ENSENADA","BERISSO"
+          ]
+        }
+      };
+
+      const SEARCH_LOCATIONS = [
+        ...ZONES[1].options,
+        ...ZONES[2].options,
+        ...ZONES[3].options
+      ];
+
+      const $ = (id) => document.getElementById(id);
+
+      const state = {
+        qty: 1,
+        step: 1,
+        mode: "envio",
+        zone: null,
+        location: "",
+        hasCylinder: null,
+        color: null
+      };
+
+      function formatMoney(n){
+        try{ return "$" + n.toLocaleString("es-AR"); }
+        catch(e){ return "$" + String(n); }
+      }
+
+      function getShippingMultiplier(){
+        return Math.max(1, Math.ceil(state.qty / 6));
+      }
+
+      function getShippingCost(){
+        if(state.mode !== "envio" || !state.zone) return 0;
+        return ZONES[state.zone].shipping * getShippingMultiplier();
+      }
+
+      function getTotal(){
+        if(state.mode === "retiro") return PRICE_RETIRO * state.qty;
+        if(!state.zone) return null;
+        return (PRICE_ENVIO_BASE * state.qty) + getShippingCost();
+      }
+
+      function getModeLabel(){
+        return state.mode === "retiro" ? "Retiro en local" : "Envío";
+      }
+
+      function getZoneLabel(){
+        if(state.mode === "retiro") return "Retiro en local";
+        if(!state.zone) return "Seleccionar zona";
+        const multiplier = getShippingMultiplier();
+        const shippingCost = getShippingCost();
+        return ZONES[state.zone].name + " • " + formatMoney(shippingCost) + (multiplier > 1 ? " (" + multiplier + " envíos)" : "");
+      }
+
+      function getUnitLabel(){
+        return state.mode === "retiro" ? formatMoney(PRICE_RETIRO) : formatMoney(PRICE_ENVIO_BASE);
+      }
+
+      function paintActiveCards(groupAttr, value){
+        document.querySelectorAll("[" + groupAttr + "]").forEach(card => {
+          card.classList.toggle("active", card.getAttribute(groupAttr) === String(value));
+        });
+      }
+
+      function setThemeByHour(){
+        const saved = localStorage.getItem("mk-theme");
+        if(saved === "light" || saved === "dark"){
+          document.documentElement.setAttribute("data-theme", saved);
+          return;
+        }
+        const hour = new Date().getHours();
+        document.documentElement.setAttribute("data-theme", (hour >= 7 && hour < 19) ? "light" : "dark");
+      }
+
+      function toggleTheme(){
+        const current = document.documentElement.getAttribute("data-theme") || "light";
+        const next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("mk-theme", next);
+      }
+
+      function openModal(){
+        $("cartModal").classList.add("open");
+        $("cartModal").setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        goStep(1);
+      }
+
+      function closeModal(){
+        $("cartModal").classList.remove("open");
+        $("cartModal").setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        $("step1Error").textContent = "";
+        $("step2Error").textContent = "";
+        $("step3Error").textContent = "";
+        $("step4Error").textContent = "";
+        $("formError").textContent = "";
+        $("copyFeedback").textContent = "";
+      }
+
+      function goStep(step){
+        state.step = step;
+        [1,2,3,4,5].forEach(n => {
+          $("step" + n).classList.toggle("active", n === step);
+          $("badgeStep" + n).classList.toggle("active", n === step);
+        });
+
+        const subtitles = {
+          1: "Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.",
+          2: state.mode === "retiro" ? "Como elegiste retiro, solo te mostramos la información útil del local." : "Primero elegí la zona de envío.",
+          3: state.mode === "retiro" ? "Seguimos mostrando solo la información del local." : "Ahora elegí solo una localidad de la zona que seleccionaste.",
+          4: "Confirmá que tenés cilindro vacío y elegí el color.",
+          5: state.mode === "retiro" ? "Solo te mostramos la información del local para que puedas acercarte directamente." : "Completá tus datos, copiá CBU o alias y después enviá el pedido por WhatsApp."
+        };
+
+        $("cartSubtitle").textContent = subtitles[step] || "";
+        syncFlowByMode();
+        updateSummary();
+      }
+
+      function setQty(value){
+        state.qty = Math.max(1, Number(value) || 1);
+        updateSummary();
+      }
+
+      function setMode(mode){
+        state.mode = mode === "retiro" ? "retiro" : "envio";
+        if(state.mode === "retiro"){
+          state.zone = null;
+          state.location = "Retiro en local - Haedo";
+          document.querySelectorAll('input[name="zonaEnvio"]').forEach(i => i.checked = false);
+        }else{
+          state.location = "";
+        }
+        renderLocationOptions();
+        updateSummary();
+      }
+
+      function setZone(zone){
+        state.zone = Number(zone) || null;
+        state.location = "";
+        renderLocationOptions();
+        updateSummary();
+      }
+
+      function setLocation(location){
+        state.location = location || "";
+        updateSummary();
+      }
+
+      function setHasCylinder(value){
+        state.hasCylinder = value === "SI" ? "SI" : value === "NO" ? "NO" : null;
+        if(state.hasCylinder !== "SI"){
+          state.color = null;
+          document.querySelectorAll('input[name="cylinderColor"]').forEach(i => i.checked = false);
+        }
+        updateSummary();
+      }
+
+      function setColor(value){
+        state.color = value === "Celeste" || value === "Rosa" ? value : null;
+        updateSummary();
+      }
+
+      function renderLocationOptions(){
+        const grid = $("locationStepGrid");
+        const help = $("locationStepHelp");
+        grid.innerHTML = "";
+
+        if(state.mode === "retiro"){
+          help.textContent = "Para retiro en local no hace falta elegir localidad.";
+          return;
+        }
+
+        if(!state.zone || !ZONES[state.zone]){
+          help.textContent = "Primero elegí una zona en el paso anterior.";
+          return;
+        }
+
+        help.textContent = "Mostramos solo las localidades de la zona elegida.";
+        ZONES[state.zone].options.forEach(item => {
+          const label = document.createElement("label");
+          label.className = "location-card" + (state.location === item ? " active" : "");
+          label.setAttribute("data-location-card", item);
+
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "locationChoice";
+          input.value = item;
+          if(state.location === item) input.checked = true;
+          input.addEventListener("change", function(){ setLocation(this.value); });
+
+          const strong = document.createElement("strong");
+          strong.textContent = item;
+
+          const p = document.createElement("p");
+          p.textContent = "Seleccioná esta localidad para continuar con el envío.";
+
+          label.appendChild(input);
+          label.appendChild(strong);
+          label.appendChild(p);
+          grid.appendChild(label);
+        });
+      }
+
+      function syncFlowByMode(){
+        const isRetiro = state.mode === "retiro";
+
+        $("zonesWrapStep2").classList.toggle("hidden", isRetiro);
+        $("pickupStep2Info").classList.toggle("hidden", !isRetiro);
+        $("locationStepWrap").classList.toggle("hidden", isRetiro);
+        $("pickupStep3Info").classList.toggle("hidden", !isRetiro);
+
+        $("shippingContent").classList.toggle("hidden", isRetiro);
+        $("pickupFinalContent").classList.toggle("hidden", !isRetiro);
+
+        $("step2Title").textContent = isRetiro ? "Información del local" : "Elegí tu zona de envío";
+        $("step3Title").textContent = isRetiro ? "Información del local" : "Elegí tu localidad";
+
+        $("fLocationText").value = isRetiro ? "Retiro en local - Haedo" : (state.location || "");
+        $("step5SummaryNote").textContent = "Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.";
+      }
+
+      function updateSummary(){
+        paintActiveCards("data-mode-card", state.mode);
+        paintActiveCards("data-zone-card", state.zone);
+        paintActiveCards("data-cylinder-card", state.hasCylinder === "SI" ? "si" : state.hasCylinder === "NO" ? "no" : "");
+        paintActiveCards("data-color-card", state.color || "");
+        document.querySelectorAll("[data-location-card]").forEach(card => {
+          card.classList.toggle("active", card.getAttribute("data-location-card") === state.location);
+        });
+
+        const total = getTotal();
+        const isRetiro = state.mode === "retiro";
+        const hasCylinderText = state.hasCylinder === "SI" ? "Sí" : state.hasCylinder === "NO" ? "No" : "Sin definir";
+        const colorText = state.color || "Sin definir";
+
+        $("qtyValue").textContent = state.qty;
+        $("summaryMode2").textContent = getModeLabel();
+        $("summaryUnit2").textContent = getUnitLabel();
+        $("summaryQty2").textContent = state.qty;
+        $("summaryZone2").textContent = getZoneLabel();
+        $("summaryLocation2").textContent = isRetiro ? "Retiro en local - Haedo" : (state.location || "Sin definir");
+        $("summaryCylinder2").textContent = hasCylinderText;
+        $("summaryColor2").textContent = colorText;
+        $("summaryTotal2").textContent = total === null ? "-" : formatMoney(total);
+
+        $("step1Note").textContent = isRetiro
+          ? "Si elegís retiro en local, el valor es " + formatMoney(PRICE_RETIRO) + " por unidad. La web no coordina los retiros del local; solo informa."
+          : "Si elegís envío, en el próximo paso vas a seleccionar la zona de entrega.";
+
+        $("noCylinderNote").classList.toggle("show", state.hasCylinder === "NO");
+        $("colorWrap").classList.toggle("hidden", state.hasCylinder !== "SI");
+        syncFlowByMode();
+      }
+
+      function validateStep1(){
+        $("step1Error").textContent = "";
+        return true;
+      }
+
+      function validateStep2(){
+        if(state.mode === "envio" && !state.zone){
+          $("step2Error").textContent = "Seleccioná una zona antes de continuar.";
+          return false;
+        }
+        $("step2Error").textContent = "";
+        return true;
+      }
+
+      function validateStep3(){
+        if(state.mode === "envio" && !state.location){
+          $("step3Error").textContent = "Seleccioná una localidad para continuar.";
+          return false;
+        }
+        $("step3Error").textContent = "";
+        return true;
+      }
+
+      function validateStep4(){
+        if(state.hasCylinder !== "SI"){
+          $("step4Error").textContent = "Solo podés continuar si confirmás que tenés cilindro vacío.";
+          return false;
+        }
+        if(!state.color){
+          $("step4Error").textContent = "Seleccioná el color del cilindro para continuar.";
+          return false;
+        }
+        $("step4Error").textContent = "";
+        return true;
+      }
+
+      function validateStep5(){
+        const nombre = ($("fNombre").value || "").trim();
+        const telefono = ($("fTelefono").value || "").trim();
+        const calle = ($("fCalle").value || "").trim();
+
+        if(!nombre){
+          $("formError").textContent = "Completá tu nombre y apellido.";
+          $("fNombre").focus();
+          return false;
+        }
+
+        if(!telefono){
+          $("formError").textContent = "Completá tu número de teléfono.";
+          $("fTelefono").focus();
+          return false;
+        }
+
+        if(!state.location){
+          $("formError").textContent = "Primero seleccioná una localidad.";
+          return false;
+        }
+
+        if(!calle){
+          $("formError").textContent = "Completá la dirección para el envío.";
+          $("fCalle").focus();
+          return false;
+        }
+
+        $("formError").textContent = "";
+        return true;
+      }
+
+      function buildMessage(){
+        const nombre = ($("fNombre").value || "").trim();
+        const telefono = ($("fTelefono").value || "").trim();
+        const calle = ($("fCalle").value || "").trim();
+        const pisoDepto = ($("fPisoDepto").value || "").trim();
+
+        const lines = [];
+        lines.push("Nombre: " + nombre);
+        lines.push("Direccion: " + calle);
+        lines.push("Piso depto: " + (pisoDepto || "-"));
+        lines.push("Localidad: " + state.location);
+        lines.push("Cantidad: " + state.qty + "*");
+        lines.push("Color cilindro: " + state.color);
+        lines.push("Telefono: " + telefono);
+
+        return lines.join("\n");
+      }
+
+      function openWhatsAppWithMessage(message){
+        const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(message);
+        window.open(url, "_blank", "noopener");
+      }
+
+      function sendOrder(){
+        if(!validateStep5()) return;
+        openWhatsAppWithMessage(buildMessage());
+      }
+
+      function normalizeText(text){
+        return (text || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\./g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function renderZoneResults(matches, query){
+        const results = $("zoneResults");
+        const feedback = $("zoneFeedback");
+        results.innerHTML = "";
+
+        if(!query){
+          feedback.textContent = "Escribí una localidad o barrio para ver los resultados.";
+          return;
+        }
+
+        if(matches.length === 0){
+          feedback.textContent = "No encontramos coincidencias con esa búsqueda. Probá con otra localidad o consultá por WhatsApp.";
+          return;
+        }
+
+        feedback.textContent = matches.length === 1
+          ? "Encontramos 1 resultado."
+          : "Encontramos " + matches.length + " resultados.";
+
+        matches.forEach(name => {
+          const div = document.createElement("div");
+          div.className = "zone-item";
+          div.textContent = name;
+          results.appendChild(div);
+        });
+      }
+
+      function filterZones(){
+        const query = normalizeText(($("zoneSearch").value || ""));
+        if(!query){
+          renderZoneResults([], "");
+          return;
+        }
+
+        const starts = [];
+        const includes = [];
+
+        SEARCH_LOCATIONS.forEach(location => {
+          const normalized = normalizeText(location);
+          if(normalized.startsWith(query)) starts.push(location);
+          else if(normalized.includes(query)) includes.push(location);
+        });
+
+        renderZoneResults(starts.concat(includes), query);
+      }
+
+      function adjustFloat(){
+        const float = $("waFloat");
+        const order = $("armarPedidoBtn");
+        const footer = $("footer");
+        if(!float || !footer || !order) return;
+
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = window.innerHeight - footerRect.top;
+        const extra = overlap > 0 ? Math.min(overlap + 14, 240) : 0;
+
+        const waBase = window.innerWidth <= 560 ? 14 : 16;
+        const orderBase = window.innerWidth <= 560 ? 80 : 90;
+
+        float.style.bottom = (waBase + extra) + "px";
+        order.style.bottom = (orderBase + extra) + "px";
+      }
+
+      function setupBurger(){
+        const btn = $("burgerBtn");
+        const nav = $("siteNav");
+        if(!btn || !nav) return;
+
+        btn.addEventListener("click", function(){
+          const open = nav.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+
+        nav.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", function(){
+            nav.classList.remove("open");
+            btn.setAttribute("aria-expanded", "false");
+          });
+        });
+
+        document.addEventListener("click", function(e){
+          if(window.innerWidth > 900) return;
+          if(!nav.classList.contains("open")) return;
+          if(nav.contains(e.target) || btn.contains(e.target)) return;
+          nav.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      async function copyOnly(value, label){
+        try{
+          await navigator.clipboard.writeText(value);
+          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
+        }catch(e){
+          const temp = document.createElement("textarea");
+          temp.value = value;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand("copy");
+          document.body.removeChild(temp);
+          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
+        }
+      }
+
+      function setupButtons(){
+        [$("heroBuyBtn"), $("productBuyBtn"), $("armarPedidoBtn")].forEach(btn => {
+          if(btn) btn.addEventListener("click", function(e){
+            if(btn.tagName.toLowerCase() === "a") e.preventDefault();
+            openModal();
+          });
+        });
+
+        $("directWspBtn").addEventListener("click", function(){
+          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
+        });
+
+        $("waFloat").addEventListener("click", function(e){
+          e.preventDefault();
+          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
+        });
+
+        $("copyCbuBtn").addEventListener("click", function(){ copyOnly(COPY_CBU, "CBU"); });
+        $("copyAliasBtn").addEventListener("click", function(){ copyOnly(COPY_ALIAS, "alias"); });
+
+        $("qtyMinus").addEventListener("click", function(){ setQty(state.qty - 1); });
+        $("qtyPlus").addEventListener("click", function(){ setQty(state.qty + 1); });
+
+        document.querySelectorAll('input[name="modo"]').forEach(input => {
+          input.addEventListener("change", function(){ setMode(this.value); });
+        });
+
+        document.querySelectorAll('input[name="zonaEnvio"]').forEach(input => {
+          input.addEventListener("change", function(){ setZone(this.value); });
+        });
+
+        document.querySelectorAll('input[name="hasCylinder"]').forEach(input => {
+          input.addEventListener("change", function(){ setHasCylinder(this.value); });
+        });
+
+        document.querySelectorAll('input[name="cylinderColor"]').forEach(input => {
+          input.addEventListener("change", function(){ setColor(this.value); });
+        });
+
+        $("btnStep1Next").addEventListener("click", function(){
+          if(!validateStep1()) return;
+          goStep(2);
+        });
+
+        $("btnStep2Next").addEventListener("click", function(){
+          if(state.mode === "retiro"){
+            goStep(5);
+            return;
+          }
+          if(!validateStep2()) return;
+          goStep(3);
+        });
+
+        $("btnStep3Next").addEventListener("click", function(){
+          if(state.mode === "retiro"){
+            goStep(5);
+            return;
+          }
+          if(!validateStep3()) return;
+          goStep(4);
+        });
+
+        $("btnStep4Next").addEventListener("click", function(){
+          if(!validateStep4()) return;
+          goStep(5);
+        });
+
+        $("btnStep2Back").addEventListener("click", function(){ goStep(1); });
+        $("btnStep3Back").addEventListener("click", function(){ goStep(2); });
+        $("btnStep4Back").addEventListener("click", function(){ goStep(3); });
+        $("btnStep5Back").addEventListener("click", function(){ goStep(state.mode === "retiro" ? 2 : 4); });
+        $("btnPickupBack").addEventListener("click", function(){ goStep(2); });
+        $("btnPickupClose").addEventListener("click", closeModal);
+
+        $("btnCloseStep1").addEventListener("click", closeModal);
+        $("btnSendOrder").addEventListener("click", sendOrder);
+
+        $("cartClose").addEventListener("click", closeModal);
+        $("cartOverlay").addEventListener("click", closeModal);
+
+        document.addEventListener("keydown", function(e){
+          if(e.key === "Escape" && $("cartModal").classList.contains("open")) closeModal();
+        });
+
+        $("themeToggle").addEventListener("click", toggleTheme);
+        $("zoneSearch").addEventListener("input", filterZones);
+      }
+
+      function setYear(){
+        $("year").textContent = new Date().getFullYear();
+      }
+
+      window.addEventListener("resize", adjustFloat);
+      window.addEventListener("scroll", adjustFloat, { passive:true });
+
+      setThemeByHour();
+      setupBurger();
+      setupButtons();
+      renderLocationOptions();
+      updateSummary();
+      filterZones();
+      adjustFloat();
+      setYear();
+    })();
+  </script>
+</body>
+</html>
