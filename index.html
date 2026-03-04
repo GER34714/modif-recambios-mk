@@ -219,17 +219,17 @@
     }
 
     .brand-logo{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:#fff;
+      width:56px;
+      height:56px;
+      overflow:visible;
+      border:none;
+      background:transparent;
       flex:0 0 auto;
-      box-shadow:var(--shadow-soft);
+      box-shadow:none;
+      border-radius:0;
     }
 
-    .brand-logo img{width:100%;height:100%;object-fit:cover}
+    .brand-logo img{width:100%;height:100%;object-fit:contain}
     .brand-text{display:flex;flex-direction:column;min-width:0}
     .brand-text strong{font-size:14px;line-height:1.1;white-space:nowrap}
     .brand-text span{font-size:13px;color:var(--muted);white-space:nowrap;font-weight:900}
@@ -313,13 +313,13 @@
       background-repeat:no-repeat;
       background-size:cover;
       background-position:center;
-      opacity:.12;
+      opacity:.07;
       z-index:0;
       pointer-events:none;
     }
 
     html[data-theme="dark"] .hero-copy-card::before{
-      opacity:.08;
+      opacity:.05;
     }
 
     .hero-copy-card > *{
@@ -331,19 +331,34 @@
       .hero-copy-card{padding:20px;gap:18px}
     }
 
-    .hero-top{display:flex;align-items:flex-start;gap:16px;min-width:0}
-    .hero-mark{
-      width:78px;
-      height:78px;
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:#fff;
-      box-shadow:var(--shadow-soft);
-      flex:0 0 auto;
+    .hero-top{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
     }
 
-    .hero-mark img{width:100%;height:100%;object-fit:cover}
+    .hero-mark{
+      width:118px;
+      height:118px;
+      overflow:visible;
+      border:none;
+      background:transparent;
+      box-shadow:none;
+      flex:0 0 auto;
+      border-radius:0;
+    }
+
+    .hero-mark img{width:100%;height:100%;object-fit:contain}
+
+    @media (max-width:720px){
+      .hero-top{align-items:flex-start}
+      .hero-mark{
+        width:90px;
+        height:90px;
+      }
+    }
+
     .hero-copy{min-width:0}
     .hero-copy h1{
       margin:0 0 12px;
@@ -883,9 +898,9 @@
       position:fixed;
       inset:0;
       display:none;
-      align-items:center;
+      align-items:stretch;
       justify-content:center;
-      padding:18px;
+      padding:10px;
       z-index:120;
     }
 
@@ -901,12 +916,12 @@
     .modal-dialog{
       position:relative;
       z-index:1;
-      width:min(940px, 100%);
-      max-height:min(92vh, 920px);
+      width:min(1120px, 98vw);
+      max-height:min(96vh, 1100px);
       overflow:auto;
       background:var(--surface);
       border:1px solid var(--line);
-      border-radius:28px;
+      border-radius:30px;
       box-shadow:0 28px 80px rgba(0,0,0,.35);
     }
 
@@ -924,22 +939,29 @@
       align-items:flex-start;
       justify-content:space-between;
       gap:16px;
-      padding:18px 18px 16px;
+      padding:20px 22px 18px;
       background:color-mix(in srgb, var(--surface), transparent 4%);
       backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
-      border-top-left-radius:28px;
-      border-top-right-radius:28px;
+      border-top-left-radius:30px;
+      border-top-right-radius:30px;
     }
 
     .modal-head h3{
       margin:0 0 6px;
-      font-size:25px;
+      font-size:28px;
       line-height:1.05;
       letter-spacing:-.5px;
     }
 
-    .modal-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.55;font-weight:800}
+    .modal-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+      font-weight:800;
+      max-width:760px;
+    }
 
     .modal-close{
       width:44px;
@@ -956,31 +978,53 @@
     }
 
     .modal-close svg{width:20px;height:20px}
-    .modal-body{padding:18px;display:grid;gap:16px}
-    .checkout-step{display:none;gap:16px}
-    .checkout-step.active{display:grid}
 
-    .checkout-card{
-      background:var(--surface-soft);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:16px;
-      box-shadow:var(--shadow-soft);
+    .modal-body{
+      padding:24px;
+      display:grid;
+      gap:22px;
     }
 
-    .checkout-card h4{margin:0 0 12px;font-size:19px;letter-spacing:-.2px}
+    .checkout-step{display:none}
+    .checkout-step.active{display:block}
+
+    .checkout-card{
+      background:transparent;
+      border:none;
+      border-radius:0;
+      padding:0;
+      box-shadow:none;
+    }
+
+    .checkout-card h4{margin:0 0 12px;font-size:24px;letter-spacing:-.3px}
 
     .checkout-product{
       display:grid;
-      grid-template-columns:110px 1fr;
-      gap:14px;
+      grid-template-columns:130px 1fr;
+      gap:16px;
       align-items:start;
     }
 
-    @media (max-width:520px){.checkout-product{grid-template-columns:1fr}}
+    @media (max-width:640px){
+      .modal{padding:0}
+      .modal-dialog{
+        width:100vw;
+        max-height:100vh;
+        height:100vh;
+        border-radius:0;
+        border:none;
+      }
+      .modal-head{
+        padding:18px 16px 16px;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+      }
+      .modal-body{padding:18px 16px 26px}
+      .checkout-product{grid-template-columns:1fr}
+    }
 
     .checkout-product .thumb{
-      border-radius:18px;
+      border-radius:20px;
       overflow:hidden;
       border:1px solid var(--line);
       background:#fff;
@@ -999,7 +1043,7 @@
 
     @media (max-width:640px){.mode-grid{grid-template-columns:1fr}}
 
-    .select-card,.zone-option,.choice-card,.location-card{
+    .select-card,.zone-option,.choice-card,.location-card,.payment-option{
       position:relative;
       border:1px solid var(--line);
       background:var(--surface);
@@ -1010,8 +1054,8 @@
       transition:border-color .14s ease, transform .14s ease, box-shadow .14s ease, background .14s ease;
     }
 
-    .select-card:hover,.zone-option:hover,.choice-card:hover,.location-card:hover{transform:translateY(-1px)}
-    .select-card.active,.choice-card.active,.location-card.active{
+    .select-card:hover,.zone-option:hover,.choice-card:hover,.location-card:hover,.payment-option:hover{transform:translateY(-1px)}
+    .select-card.active,.choice-card.active,.location-card.active,.payment-option.active{
       border-color:color-mix(in srgb, var(--brand), var(--line) 40%);
       background:linear-gradient(180deg, color-mix(in srgb, var(--brand), transparent 93%), transparent 55%), var(--surface);
       box-shadow:0 16px 34px rgba(34,197,94,.12);
@@ -1022,14 +1066,20 @@
       background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 55%), var(--surface);
     }
 
-    .select-card input,.zone-option input,.choice-card input,.location-card input{
+    .payment-option.active{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 34%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 55%), var(--surface);
+      box-shadow:0 16px 34px rgba(37,99,235,.12);
+    }
+
+    .select-card input,.zone-option input,.choice-card input,.location-card input,.payment-option input{
       position:absolute;
       opacity:0;
       pointer-events:none;
     }
 
-    .select-card strong,.choice-card strong,.location-card strong{display:block;margin-bottom:6px;font-size:16px}
-    .select-card p,.choice-card p,.location-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:800}
+    .select-card strong,.choice-card strong,.location-card strong,.payment-option strong{display:block;margin-bottom:6px;font-size:16px}
+    .select-card p,.choice-card p,.location-card p,.payment-option p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:800}
 
     .qty-row{
       display:flex;
@@ -1228,8 +1278,20 @@
     textarea{min-height:108px;resize:vertical}
     .full{grid-column:1 / -1}
 
-    .payment-box{
+    .payment-methods{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
       margin-top:14px;
+      margin-bottom:14px;
+    }
+
+    @media (max-width:640px){
+      .payment-methods{grid-template-columns:1fr}
+    }
+
+    .payment-box{
+      margin-top:0;
       padding:14px;
       border-radius:18px;
       border:1px solid color-mix(in srgb, var(--accent), var(--line) 52%);
@@ -1327,7 +1389,7 @@
       gap:10px;
       align-items:center;
       justify-content:space-between;
-      padding-top:2px;
+      padding-top:6px;
     }
 
     @media (max-width:560px){
@@ -1336,29 +1398,6 @@
         align-items:stretch;
       }
       .modal-actions .btn{width:100%}
-    }
-
-    .step-badges{display:flex;gap:8px;flex-wrap:wrap}
-    .step-badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:38px;
-      height:38px;
-      padding:0 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:var(--surface);
-      font-size:12px;
-      font-weight:900;
-      color:var(--muted);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .step-badge.active{
-      background:color-mix(in srgb, var(--brand), transparent 88%);
-      border-color:color-mix(in srgb, var(--brand), var(--line) 56%);
-      color:color-mix(in srgb, var(--text), var(--brand) 16%);
     }
 
     .sr-only{
@@ -1519,7 +1558,7 @@
                 <div class="bullet">
                   <div>
                     <strong>Compra simple, rápida y clara</strong>
-                    <p>Recambiamos tu cilindro Soda Stream original,(recargado con 450 grs de CO2 nacional certificado ANMAT).</p>
+                    <p>Recambiamos tu cilindro Soda Stream original, (recargado con 450 grs de CO2 nacional certificado ANMAT).</p>
                   </div>
                 </div>
               </div>
@@ -1581,7 +1620,9 @@
               </article>
             </div>
           </div>
-        </section>        <section class="section" id="beneficios">
+        </section>
+
+        <section class="section" id="beneficios">
           <div class="section-head">
             <span class="eyebrow">Beneficios</span>
             <h2>Compra simple, rápida y clara</h2>
@@ -1638,7 +1679,7 @@
               <p>Referencia visual de la zona de entregas en CABA y GBA.</p>
 
               <div class="coverage-image-wrap">
-                <img src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de localidades de entrega">
+                <img src="https://iili.io/qCdyDOP.png" alt="Mapa de localidades de entrega">
               </div>
             </div>
 
@@ -1688,7 +1729,8 @@
                 </summary>
                 <div class="answer">
                   • El pago es por transferencia adelantada para envíos.<br>
-                  • Los datos de alias y CBU aparecen solo al completar la sección de envío.<br>
+                  • Los datos de alias y CBU aparecen al completar la sección de envío.<br>
+                  • Podés elegir entre dos cuentas para transferir.<br>
                   • En local, el pago es directo y vale $12.000.
                 </div>
               </details>
@@ -1811,13 +1853,6 @@
     <div class="modal-dialog">
       <div class="modal-head">
         <div>
-          <div class="step-badges" aria-hidden="true">
-            <span class="step-badge active" id="badgeStep1">Paso 1</span>
-            <span class="step-badge" id="badgeStep2">Paso 2</span>
-            <span class="step-badge" id="badgeStep3">Paso 3</span>
-            <span class="step-badge" id="badgeStep4">Paso 4</span>
-            <span class="step-badge" id="badgeStep5">Paso 5</span>
-          </div>
           <h3 id="cartTitle">Carrito de compra</h3>
           <p id="cartSubtitle">Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.</p>
         </div>
@@ -1982,7 +2017,9 @@
               <button class="btn primary" type="button" id="btnStep3Next">Continuar</button>
             </div>
           </div>
-        </section>        <section class="checkout-step" id="step4">
+        </section>
+
+        <section class="checkout-step" id="step4">
           <div class="checkout-card">
             <h4>Confirmá tu cilindro</h4>
 
@@ -2073,11 +2110,26 @@
               </div>
 
               <div id="paymentBoxWrap">
+                <div class="payment-methods">
+                  <label class="payment-option active" data-payment-card="mercado">
+                    <input type="radio" name="paymentAccount" value="mercado" checked>
+                    <strong>Cuenta principal</strong>
+                    <p>Mercado Pago • Mariano Quercia</p>
+                  </label>
+
+                  <label class="payment-option" data-payment-card="lemon">
+                    <input type="radio" name="paymentAccount" value="lemon">
+                    <strong>Lemon Cash</strong>
+                    <p>Lemon Cash • Mariano Quercia</p>
+                  </label>
+                </div>
+
                 <div class="payment-box">
-                  <strong>Datos para transferencia</strong>
+                  <strong id="paymentTitle">Datos para transferencia - Cuenta principal</strong>
+                  <div class="pay-line"><b>Entidad:</b> <span id="bankValue">Mercado Pago</span></div>
                   <div class="pay-line"><b>CBU:</b> <span id="cbuValue">0000003100037411221896</span></div>
                   <div class="pay-line"><b>Alias:</b> <span id="aliasValue">muralo3.mp</span></div>
-                  <div class="pay-line"><b>Titular:</b> Mariano Quercia</div>
+                  <div class="pay-line"><b>Titular:</b> <span id="holderValue">Mariano Quercia</span></div>
 
                   <div class="payment-actions">
                     <button class="btn copy-pay" type="button" id="copyCbuBtn">Copiar CBU</button>
@@ -2090,8 +2142,8 @@
 
               <div style="height:14px"></div>
 
-              <aside class="checkout-card" style="padding:14px;">
-                <h4 style="margin-bottom:10px;">Resumen final</h4>
+              <aside class="checkout-card" style="padding:14px; border:1px solid var(--line); border-radius:22px; background:var(--surface-soft); box-shadow:var(--shadow-soft);">
+                <h4 style="margin-bottom:10px; font-size:20px;">Resumen final</h4>
                 <div class="modal-summary">
                   <div class="summary-row">
                     <span>Modalidad</span>
@@ -2128,6 +2180,11 @@
                     <span id="summaryColor2">Celeste</span>
                   </div>
 
+                  <div class="summary-row">
+                    <span>Cuenta elegida</span>
+                    <span id="summaryAccount2">Cuenta principal</span>
+                  </div>
+
                   <div class="summary-row total">
                     <span>Total</span>
                     <span id="summaryTotal2">$16.000</span>
@@ -2136,7 +2193,7 @@
               </aside>
 
               <div class="summary-note" id="step5SummaryNote" style="margin-top:14px;">
-                Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
+                Elegí una de las dos cuentas, copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.
               </div>
 
               <div class="error" id="formError"></div>
@@ -2178,8 +2235,23 @@
       const WA_NUMBER = "5491162843339";
       const PRICE_RETIRO = 12000;
       const PRICE_ENVIO_BASE = 11000;
-      const COPY_CBU = "0000003100037411221896";
-      const COPY_ALIAS = "muralo3.mp";
+
+      const PAYMENT_ACCOUNTS = {
+        mercado: {
+          title: "Cuenta principal",
+          bank: "Mercado Pago",
+          cbu: "0000003100037411221896",
+          alias: "muralo3.mp",
+          holder: "Mariano Quercia"
+        },
+        lemon: {
+          title: "Lemon Cash",
+          bank: "Lemon Cash",
+          cbu: "0000168300000018558924",
+          alias: "MURALO.SODA.5",
+          holder: "MARIANO QUERCIA"
+        }
+      };
 
       const ZONES = {
         1: {
@@ -2220,7 +2292,8 @@
         zone: null,
         location: "",
         hasCylinder: null,
-        color: null
+        color: null,
+        paymentAccount: "mercado"
       };
 
       function formatMoney(n){
@@ -2257,6 +2330,10 @@
 
       function getUnitLabel(){
         return state.mode === "retiro" ? formatMoney(PRICE_RETIRO) : formatMoney(PRICE_ENVIO_BASE);
+      }
+
+      function getSelectedAccount(){
+        return PAYMENT_ACCOUNTS[state.paymentAccount] || PAYMENT_ACCOUNTS.mercado;
       }
 
       function paintActiveCards(groupAttr, value){
@@ -2305,7 +2382,6 @@
         state.step = step;
         [1,2,3,4,5].forEach(n => {
           $("step" + n).classList.toggle("active", n === step);
-          $("badgeStep" + n).classList.toggle("active", n === step);
         });
 
         const subtitles = {
@@ -2313,7 +2389,7 @@
           2: state.mode === "retiro" ? "Como elegiste retiro, solo te mostramos la información útil del local." : "Primero elegí la zona de envío.",
           3: state.mode === "retiro" ? "Seguimos mostrando solo la información del local." : "Ahora elegí solo una localidad de la zona que seleccionaste.",
           4: "Confirmá que tenés cilindro vacío y elegí el color.",
-          5: state.mode === "retiro" ? "Solo te mostramos la información del local para que puedas acercarte directamente." : "Completá tus datos, copiá CBU o alias y después enviá el pedido por WhatsApp."
+          5: state.mode === "retiro" ? "Solo te mostramos la información del local para que puedas acercarte directamente." : "Completá tus datos, elegí la cuenta, copiá CBU o alias y después enviá el pedido por WhatsApp."
         };
 
         $("cartSubtitle").textContent = subtitles[step] || "";
@@ -2363,6 +2439,22 @@
       function setColor(value){
         state.color = value === "Celeste" || value === "Rosa" ? value : null;
         updateSummary();
+      }
+
+      function setPaymentAccount(value){
+        state.paymentAccount = PAYMENT_ACCOUNTS[value] ? value : "mercado";
+        updatePaymentBox();
+        updateSummary();
+      }
+
+      function updatePaymentBox(){
+        const account = getSelectedAccount();
+        $("paymentTitle").textContent = "Datos para transferencia - " + account.title;
+        $("bankValue").textContent = account.bank;
+        $("cbuValue").textContent = account.cbu;
+        $("aliasValue").textContent = account.alias;
+        $("holderValue").textContent = account.holder;
+        paintActiveCards("data-payment-card", state.paymentAccount);
       }
 
       function renderLocationOptions(){
@@ -2421,7 +2513,7 @@
         $("step3Title").textContent = isRetiro ? "Información del local" : "Elegí tu localidad";
 
         $("fLocationText").value = isRetiro ? "Retiro en local - Haedo" : (state.location || "");
-        $("step5SummaryNote").textContent = "Copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.";
+        $("step5SummaryNote").textContent = "Elegí una de las dos cuentas, copiá el CBU o el alias, realizá el pago y después enviá el pedido prearmado por WhatsApp junto con el comprobante para completar el envío. Gracias por elegir RECAMBIOS MK.";
       }
 
       function updateSummary(){
@@ -2437,6 +2529,7 @@
         const isRetiro = state.mode === "retiro";
         const hasCylinderText = state.hasCylinder === "SI" ? "Sí" : state.hasCylinder === "NO" ? "No" : "Sin definir";
         const colorText = state.color || "Sin definir";
+        const account = getSelectedAccount();
 
         $("qtyValue").textContent = state.qty;
         $("summaryMode2").textContent = getModeLabel();
@@ -2446,6 +2539,7 @@
         $("summaryLocation2").textContent = isRetiro ? "Retiro en local - Haedo" : (state.location || "Sin definir");
         $("summaryCylinder2").textContent = hasCylinderText;
         $("summaryColor2").textContent = colorText;
+        $("summaryAccount2").textContent = account.title;
         $("summaryTotal2").textContent = total === null ? "-" : formatMoney(total);
 
         $("step1Note").textContent = isRetiro
@@ -2530,6 +2624,7 @@
         const telefono = ($("fTelefono").value || "").trim();
         const calle = ($("fCalle").value || "").trim();
         const pisoDepto = ($("fPisoDepto").value || "").trim();
+        const account = getSelectedAccount();
 
         const lines = [];
         lines.push("Nombre: " + nombre);
@@ -2539,6 +2634,8 @@
         lines.push("Cantidad: " + state.qty + "*");
         lines.push("Color cilindro: " + state.color);
         lines.push("Telefono: " + telefono);
+        lines.push("Cuenta elegida: " + account.title);
+        lines.push("Alias para transferencia: " + account.alias);
 
         return lines.join("\n");
       }
@@ -2652,10 +2749,14 @@
         });
       }
 
-      async function copyOnly(value, label){
+      async function copyOnly(type){
+        const account = getSelectedAccount();
+        const value = type === "cbu" ? account.cbu : account.alias;
+        const label = type === "cbu" ? "CBU" : "alias";
+
         try{
           await navigator.clipboard.writeText(value);
-          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
+          $("copyFeedback").textContent = "Copiado: " + label + " de " + account.title + " listo para pegar.";
         }catch(e){
           const temp = document.createElement("textarea");
           temp.value = value;
@@ -2663,7 +2764,7 @@
           temp.select();
           document.execCommand("copy");
           document.body.removeChild(temp);
-          $("copyFeedback").textContent = "Copiado: " + label + " listo para pegar.";
+          $("copyFeedback").textContent = "Copiado: " + label + " de " + account.title + " listo para pegar.";
         }
       }
 
@@ -2684,8 +2785,8 @@
           openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
         });
 
-        $("copyCbuBtn").addEventListener("click", function(){ copyOnly(COPY_CBU, "CBU"); });
-        $("copyAliasBtn").addEventListener("click", function(){ copyOnly(COPY_ALIAS, "alias"); });
+        $("copyCbuBtn").addEventListener("click", function(){ copyOnly("cbu"); });
+        $("copyAliasBtn").addEventListener("click", function(){ copyOnly("alias"); });
 
         $("qtyMinus").addEventListener("click", function(){ setQty(state.qty - 1); });
         $("qtyPlus").addEventListener("click", function(){ setQty(state.qty + 1); });
@@ -2704,6 +2805,10 @@
 
         document.querySelectorAll('input[name="cylinderColor"]').forEach(input => {
           input.addEventListener("change", function(){ setColor(this.value); });
+        });
+
+        document.querySelectorAll('input[name="paymentAccount"]').forEach(input => {
+          input.addEventListener("change", function(){ setPaymentAccount(this.value); });
         });
 
         $("btnStep1Next").addEventListener("click", function(){
@@ -2766,6 +2871,7 @@
       setupBurger();
       setupButtons();
       renderLocationOptions();
+      updatePaymentBox();
       updateSummary();
       filterZones();
       adjustFloat();
