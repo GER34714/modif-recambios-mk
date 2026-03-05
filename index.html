@@ -1589,10 +1589,9 @@
               <article class="zone-card">
                 <div>
                   <strong>Zona 1</strong>
-                  <span class="zone-price">Envío $5.000</span>
                 </div>
                 <div class="zone-thumb">
-                  <img src="https://iili.io/qBARJ1t.jpg" alt="Zona 1">
+                  <img src="https://iili.io/qnMB8n1.jpg" alt="Zona 1">
                 </div>
                 <p>Caba, Morón, Ramos Mejía, Haedo, Lomas del Mirador, San Justo, La Tablada, Villa Madero, Ituzaingó, Hurlingham, 3 de Febrero.</p>
               </article>
@@ -1600,10 +1599,9 @@
               <article class="zone-card">
                 <div>
                   <strong>Zona 2</strong>
-                  <span class="zone-price">Envío $6.000</span>
                 </div>
                 <div class="zone-thumb">
-                  <img src="https://iili.io/qBARPj4.jpg" alt="Zona 2">
+                  <img src="https://iili.io/qnMctxn.jpg" alt="Zona 2">
                 </div>
                 <p>Vicente López, San Martín, San Isidro, San Fernando, Olivos, Malvinas Argentinas, San Miguel, José C. Paz, Moreno, Merlo, Ciudad Evita, Villa Celina, Aldo Bonzi, Isidro Casanova, Laferrere, Rafael Castillo, González Catán, Virrey del Pino, Avellaneda, Lanús, Lomas de Zamora, Quilmes, Berazategui, Florencio Varela, Almirante Brown, Esteban Echeverría, Ezeiza.</p>
               </article>
@@ -1611,10 +1609,9 @@
               <article class="zone-card">
                 <div>
                   <strong>Zona 3</strong>
-                  <span class="zone-price">Envío $9.000</span>
                 </div>
                 <div class="zone-thumb">
-                  <img src="https://iili.io/qBA7c0P.png" alt="Zona 3">
+                  <img src="https://iili.io/qnMVubp.jpg" alt="Zona 3">
                 </div>
                 <p>Zárate, Campana, Escobar, Villa Rosa, Pilar, Luján, Marcos Paz, General Rodríguez, Derqui, Del Viso, Garín, Tigre, Ingeniero Maschwitz, Cañuelas, Guernica, San Vicente, La Plata, Ensenada, Berisso.</p>
               </article>
@@ -1681,9 +1678,7 @@
               <div class="coverage-image-wrap">
                 <img src="https://iili.io/qCdyDOP.png" alt="Mapa de localidades de entrega">
               </div>
-            </div>
-
-            <div class="search-card">
+            </div>            <div class="search-card">
               <h3>Localidades y barrios</h3>
               <p>Podés buscar por localidad o zona de cobertura. Si no aparece, consultanos antes de confirmar el pedido</p>
 
@@ -1936,7 +1931,6 @@
                   <input type="radio" name="zonaEnvio" value="1">
                   <div class="zone-option-top">
                     <strong>Zona 1</strong>
-                    <span class="zone-badge">Envío $5.000</span>
                   </div>
                   <p>Caba, Morón, Ramos Mejía, Haedo, Lomas del Mirador, San Justo, La Tablada, Villa Madero, Ituzaingó, Hurlingham, 3 de Febrero.</p>
                 </label>
@@ -1945,7 +1939,6 @@
                   <input type="radio" name="zonaEnvio" value="2">
                   <div class="zone-option-top">
                     <strong>Zona 2</strong>
-                    <span class="zone-badge">Envío $6.000</span>
                   </div>
                   <p>Vicente López, San Martín, San Isidro, San Fernando, Olivos, Malvinas Argentinas, San Miguel, José C. Paz, Moreno, Merlo, Ciudad Evita, Villa Celina, Aldo Bonzi, Isidro Casanova, Laferrere, Rafael Castillo, González Catán, Virrey del Pino, Avellaneda, Lanús, Lomas de Zamora, Quilmes, Berazategui, Florencio Varela, Almirante Brown, Esteban Echeverría, Ezeiza.</p>
                 </label>
@@ -1954,7 +1947,6 @@
                   <input type="radio" name="zonaEnvio" value="3">
                   <div class="zone-option-top">
                     <strong>Zona 3</strong>
-                    <span class="zone-badge">Envío $9.000</span>
                   </div>
                   <p>Zárate, Campana, Escobar, Villa Rosa, Pilar, Luján, Marcos Paz, General Rodríguez, Derqui, Del Viso, Garín, Tigre, Ingeniero Maschwitz, Cañuelas, Guernica, San Vicente, La Plata, Ensenada, Berisso.</p>
                 </label>
@@ -2100,12 +2092,12 @@
 
                 <label class="full">
                   <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, entre calles.">i</span></span>
-                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Entre calles">
+                  <input id="fRef" type="text" placeholder="Ej: no anda el timbre">
                 </label>
 
                 <label class="full">
                   <span class="label-row">Nota (opcional) <span class="help" title="Podés dejar una aclaración extra para el pedido.">i</span></span>
-                  <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy, mejor."></textarea>
+                  <textarea id="fNota" placeholder="Ej: entregar después de las 18 hs"></textarea>
                 </label>
               </div>
 
@@ -2228,9 +2220,7 @@
         </section>
       </div>
     </div>
-  </div>
-
-  <script>
+  </div>  <script>
     (function(){
       const WA_NUMBER = "5491162843339";
       const PRICE_RETIRO = 12000;
@@ -2324,8 +2314,7 @@
         if(state.mode === "retiro") return "Retiro en local";
         if(!state.zone) return "Seleccionar zona";
         const multiplier = getShippingMultiplier();
-        const shippingCost = getShippingCost();
-        return ZONES[state.zone].name + " • " + formatMoney(shippingCost) + (multiplier > 1 ? " (" + multiplier + " envíos)" : "");
+        return ZONES[state.zone].name + (multiplier > 1 ? " (" + multiplier + " envíos)" : "");
       }
 
       function getUnitLabel(){
@@ -2624,12 +2613,16 @@
         const telefono = ($("fTelefono").value || "").trim();
         const calle = ($("fCalle").value || "").trim();
         const pisoDepto = ($("fPisoDepto").value || "").trim();
+        const ref = ($("fRef").value || "").trim();
+        const nota = ($("fNota").value || "").trim();
         const account = getSelectedAccount();
 
         const lines = [];
         lines.push("Nombre: " + nombre);
         lines.push("Direccion: " + calle);
         lines.push("Piso depto: " + (pisoDepto || "-"));
+        if(ref) lines.push("Referencia: " + ref);
+        if(nota) lines.push("Nota: " + nota);
         lines.push("Localidad: " + state.location);
         lines.push("Cantidad: " + state.qty + "*");
         lines.push("Color cilindro: " + state.color);
