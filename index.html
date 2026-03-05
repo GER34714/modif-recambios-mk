@@ -2621,12 +2621,12 @@
         lines.push("Nombre: " + nombre);
         lines.push("Direccion: " + calle);
         lines.push("Piso depto: " + (pisoDepto || "-"));
-        if(ref) lines.push("Referencia: " + ref);
-        if(nota) lines.push("Nota: " + nota);
         lines.push("Localidad: " + state.location);
         lines.push("Cantidad: " + state.qty + "*");
         lines.push("Color cilindro: " + state.color);
         lines.push("Telefono: " + telefono);
+        if(ref) lines.push("Referencia: " + ref);
+        if(nota) lines.push("Nota: " + nota);
         lines.push("Cuenta elegida: " + account.title);
         lines.push("Alias para transferencia: " + account.alias);
 
